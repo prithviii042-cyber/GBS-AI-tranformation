@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Proposal — AI-Enabled Enterprise Transformation | RCPL</title>
+<style>
+/* ============================================================
+   THEME TOKENS
+   ============================================================ */
+:root{
+  --navy:#152741;
+  --navy-2:#1e3557;
+  --navy-3:#284366;
+  --ink:#0f1c30;
+  --gold:#b8863b;
+  --gold-soft:#d9b878;
+  --paper:#f6f4ef;
+  --paper-2:#efeadf;
+  --card:#ffffff;
+  --line:#e2ddd2;
+  --muted:#5c6673;
+  --text:#22303f;
+  --good:#2f8f6a;
+  --warn:#c67b2c;
+  --shadow:0 12px 40px -18px rgba(21,39,65,.45);
+  --shadow-sm:0 6px 20px -12px rgba(21,39,65,.4);
+  --r:16px;
+  --maxw:1180px;
+  --sans:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{
+  font-family:var(--sans);
+  color:var(--text);
+  background:var(--paper);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+
+/* ============================================================
+   TOP NAV
+   ============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(21,39,65,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(184,134,59,.35);
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 22px;
+  height:64px;display:flex;align-items:center;gap:18px;
+}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;letter-spacing:.3px;white-space:nowrap}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(184,134,59,.25)}
+.brand small{display:block;font-weight:400;font-size:11px;color:var(--gold-soft);letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+.nav-links a{
+  color:#c9d3e0;font-size:13px;padding:8px 12px;border-radius:9px;
+  transition:.2s;font-weight:500;white-space:nowrap;
+}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav-links a.active{color:var(--navy);background:var(--gold-soft)}
+.nav-toggle{display:none;margin-left:auto;background:none;border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;padding:8px 12px;cursor:pointer;font-size:18px}
+
+/* progress bar */
+.scroll-bar{position:fixed;top:64px;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-soft));width:0;z-index:51;transition:width .1s}
+
+/* ============================================================
+   LAYOUT HELPERS
+   ============================================================ */
+section{padding:84px 0;scroll-margin-top:70px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin-bottom:14px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--gold)}
+h2.title{font-size:clamp(26px,4vw,40px);color:var(--navy);line-height:1.15;font-weight:800;letter-spacing:-.5px}
+.lead{font-size:18px;color:var(--muted);max-width:760px;margin-top:16px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;color:#fff;padding:150px 0 96px;
+  background:
+    radial-gradient(1200px 600px at 80% -10%,rgba(184,134,59,.28),transparent 60%),
+    radial-gradient(900px 500px at 0% 110%,rgba(40,67,102,.7),transparent 60%),
+    linear-gradient(135deg,#0f1f38 0%,#152741 45%,#1e3557 100%);
+  overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:48px 48px;mask-image:radial-gradient(circle at 60% 30%,#000,transparent 75%);
+}
+.hero .wrap{position:relative;z-index:2}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border-radius:100px;
+  background:rgba(184,134,59,.16);border:1px solid rgba(184,134,59,.5);
+  color:var(--gold-soft);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;
+}
+.hero h1{font-size:clamp(34px,6vw,62px);line-height:1.05;font-weight:800;margin:22px 0 8px;letter-spacing:-1px}
+.hero h1 span{color:var(--gold-soft)}
+.hero .sub{font-size:20px;color:#c7d2e2;max-width:720px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-meta .chip{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:12px;padding:12px 18px;
+}
+.hero-meta .chip b{display:block;font-size:20px;color:#fff}
+.hero-meta .chip small{color:var(--gold-soft);font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+  padding:14px 26px;border-radius:12px;font-weight:700;font-size:15px;border:none;transition:.2s;
+}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+/* client strip */
+.client-strip{background:var(--navy-2);color:#c7d2e2;padding:16px 0;font-size:13.5px}
+.client-strip .wrap{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:center;text-align:center}
+.client-strip b{color:#fff}
+
+/* ============================================================
+   CARDS / GRID
+   ============================================================ */
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:26px;box-shadow:var(--shadow-sm);transition:.25s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--gold-soft)}
+.card .ic{
+  width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--navy),var(--navy-3));color:var(--gold-soft);
+  font-size:22px;margin-bottom:16px;
+}
+.card h3{color:var(--navy);font-size:18px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14.5px}
+
+.alt{background:var(--paper-2)}
+.dark{background:var(--navy);color:#e7edf5}
+.dark h2.title{color:#fff}
+.dark .lead{color:#a9b8cc}
+.dark .eyebrow{color:var(--gold-soft)}
+
+/* ============================================================
+   STREAMS (tabs)
+   ============================================================ */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 26px}
+.tab{
+  cursor:pointer;padding:14px 22px;border-radius:12px;font-weight:700;
+  background:var(--card);border:1px solid var(--line);color:var(--navy);transition:.2s;
+  display:flex;align-items:center;gap:10px;
+}
+.tab .num{background:var(--paper-2);color:var(--navy);width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:13px}
+.tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tab.active .num{background:var(--gold);color:var(--navy)}
+.tab-panel{display:none;animation:fade .4s ease}
+.tab-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.mandate{
+  display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;
+}
+.deliv-list{list-style:none;display:grid;gap:10px}
+.deliv-list li{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+  display:flex;gap:12px;align-items:flex-start;font-size:14.5px;transition:.2s;
+}
+.deliv-list li:hover{border-color:var(--gold-soft);transform:translateX(4px)}
+.deliv-list .tag{
+  flex:none;font-size:11px;font-weight:800;color:var(--gold);
+  background:rgba(184,134,59,.12);border-radius:7px;padding:3px 8px;letter-spacing:.5px;
+}
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+.tl{position:relative;margin-top:34px}
+.tl-track{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tl-phase{
+  cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px;position:relative;transition:.25s;overflow:hidden;
+}
+.tl-phase::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--line);transition:.25s}
+.tl-phase:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.tl-phase.active{border-color:var(--gold)}
+.tl-phase.active::before{background:linear-gradient(90deg,var(--gold),var(--gold-soft))}
+.tl-phase .ph-months{font-size:12px;color:var(--gold);font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.tl-phase h4{color:var(--navy);font-size:16.5px;margin:8px 0 6px}
+.tl-phase p{font-size:13px;color:var(--muted)}
+.tl-phase .n{position:absolute;bottom:12px;right:14px;font-size:34px;font-weight:800;color:var(--paper-2);line-height:1}
+.tl-detail{
+  margin-top:20px;background:var(--navy);color:#e7edf5;border-radius:16px;padding:30px;
+  box-shadow:var(--shadow);display:none;
+}
+.tl-detail.show{display:block;animation:fade .35s ease}
+.tl-detail h3{color:#fff;font-size:22px;margin-bottom:4px}
+.tl-detail .lbl{color:var(--gold-soft);font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:12px}
+.tl-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:20px}
+.tl-cols h5{color:var(--gold-soft);font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:8px}
+.tl-cols ul{list-style:none;display:grid;gap:8px}
+.tl-cols li{font-size:14px;color:#c7d2e2;padding-left:18px;position:relative}
+.tl-cols li::before{content:"▸";position:absolute;left:0;color:var(--gold)}
+
+/* ============================================================
+   USE-CASE EXPLORER
+   ============================================================ */
+.uc-controls{display:flex;flex-wrap:wrap;gap:9px;margin:6px 0 24px;align-items:center}
+.uc-chip{
+  cursor:pointer;padding:9px 16px;border-radius:100px;font-size:13px;font-weight:600;
+  background:var(--card);border:1px solid var(--line);color:var(--navy);transition:.2s;
+}
+.uc-chip:hover{border-color:var(--gold)}
+.uc-chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.uc-count{margin-left:auto;font-weight:700;color:var(--navy);font-size:14px}
+.uc-count b{color:var(--gold);font-size:22px}
+.uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.uc{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;transition:.25s;
+  border-left:4px solid var(--gold-soft);
+}
+.uc:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm)}
+.uc .dom{font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--gold)}
+.uc h4{color:var(--navy);font-size:15.5px;margin:6px 0}
+.uc p{font-size:13px;color:var(--muted)}
+.uc .type{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;background:var(--paper-2);color:var(--navy-2)}
+.uc[data-type="Agentic"] .type{background:rgba(47,143,106,.14);color:var(--good)}
+.uc[data-type="GenAI"] .type{background:rgba(184,134,59,.16);color:var(--warn)}
+
+/* ============================================================
+   TEAM
+   ============================================================ */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.member{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;transition:.25s}
+.member:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--gold-soft)}
+.avatar{width:74px;height:74px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;font-size:26px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--navy),var(--navy-3))}
+.member h4{color:var(--navy);font-size:16px}
+.member .role{color:var(--gold);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.6px;margin:3px 0 10px}
+.member p{font-size:13px;color:var(--muted)}
+
+/* ============================================================
+   CASE STUDIES
+   ============================================================ */
+.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cs{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s;cursor:pointer}
+.cs:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.cs .cs-top{padding:22px 22px 0;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:#fff;padding-bottom:22px}
+.cs .cs-top .sector{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-soft);font-weight:700}
+.cs .cs-top h4{font-size:18px;margin-top:6px}
+.cs .cs-body{padding:20px 22px}
+.cs .cs-body p{font-size:13.5px;color:var(--muted);margin-bottom:16px}
+.cs-metrics{display:flex;gap:14px;flex-wrap:wrap}
+.cs-metrics div{flex:1;min-width:80px}
+.cs-metrics b{display:block;font-size:22px;color:var(--navy);font-weight:800}
+.cs-metrics small{font-size:11px;color:var(--muted)}
+
+/* ============================================================
+   EVALUATION MAP
+   ============================================================ */
+.eval-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.eval-table th{background:var(--navy);color:#fff;text-align:left;padding:16px 18px;font-size:13px;letter-spacing:.5px}
+.eval-table td{padding:15px 18px;border-top:1px solid var(--line);font-size:14px;vertical-align:top}
+.eval-table tr:hover td{background:var(--paper-2)}
+.wbar{height:8px;border-radius:6px;background:var(--paper-2);overflow:hidden;min-width:90px}
+.wbar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-soft))}
+.eval-table td .link{color:var(--navy-2);font-weight:600}
+
+/* stat band */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat{text-align:center;padding:10px}
+.stat b{font-size:clamp(30px,5vw,48px);color:var(--gold-soft);font-weight:800;display:block;line-height:1}
+.stat small{color:#a9b8cc;font-size:13px;text-transform:uppercase;letter-spacing:1px}
+
+/* ============================================================
+   FOOTER / CTA
+   ============================================================ */
+.foot{background:var(--ink);color:#c7d2e2;padding:60px 0 40px}
+.foot h3{color:#fff;font-size:26px;margin-bottom:10px}
+.foot .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+.foot .contact div{margin-bottom:6px}
+.foot .contact b{color:var(--gold-soft)}
+.foot-note{text-align:center;color:#6b7688;font-size:12.5px;margin-top:40px;border-top:1px solid rgba(255,255,255,.08);padding-top:22px}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:960px){
+  .g4,.team-grid,.tl-track{grid-template-columns:repeat(2,1fr)}
+  .g3,.cs-grid,.uc-grid,.tl-cols{grid-template-columns:1fr}
+  .mandate{grid-template-columns:1fr}
+  .foot .wrap{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--navy);padding:12px;gap:2px}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+  .g2,.g4,.team-grid,.tl-track,.stats{grid-template-columns:1fr}
+  section{padding:60px 0}
+}
+@media print{
+  .nav,.scroll-bar,.cta-row,.nav-toggle{display:none}
+  .tab-panel{display:block!important}
+  .tl-detail{display:block!important}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="dot"></span><div>NOVARETH Advisory<small>Response to RFP TR/2026/002</small></div></div>
+    <button class="nav-toggle" aria-label="menu">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#summary">Summary</a>
+      <a href="#model">Engagement</a>
+      <a href="#plan">Delivery Plan</a>
+      <a href="#stream1">Scope A·B</a>
+      <a href="#ai">AI Factory</a>
+      <a href="#team">Team</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#transfer">Transfer</a>
+      <a href="#eval">Scorecard</a>
+    </div>
+  </div>
+</nav>
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">◆ Confidential Technical Proposal · Volume 1</span>
+    <h1>AI-Enabled <span>Enterprise Transformation</span></h1>
+    <p class="sub">A single integrated partner to digitise, centralise and embed 100+ AI use cases across RCPL — from diagnostic to steady-state in 12–15 months.</p>
+    <div class="hero-meta">
+      <div class="chip"><b>12–15</b><small>Months to steady state</small></div>
+      <div class="chip"><b>100+</b><small>AI / GenAI / agentic use cases</small></div>
+      <div class="chip"><b>1</b><small>Firm · 2 streams · 1 PMO</small></div>
+      <div class="chip"><b>5</b><small>Business units in scope</small></div>
+    </div>
+    <div class="cta-row">
+      <a href="#plan" class="btn btn-gold">▶ Explore the delivery plan</a>
+      <a href="#eval" class="btn btn-ghost">See how we score</a>
+    </div>
+  </div>
+</header>
+
+<div class="client-strip">
+  <div class="wrap">
+    <span>Prepared for <b>Reliance Consumer Products Limited (RCPL)</b></span>
+    <span>·</span><span>RFP Ref <b>TR/2026/002</b></span>
+    <span>·</span><span>USD 2.5&nbsp;Bn+ Indian FMCG enterprise</span>
+    <span>·</span><span>Single Consulting Partner Engagement</span>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<section id="summary">
+  <div class="wrap reveal">
+    <span class="eyebrow">01 · Executive Summary</span>
+    <h2 class="title">One firm, both streams, delivered at velocity</h2>
+    <p class="lead">RCPL needs a fully operational AI-enabled enterprise — not a strategy deck. We bring deep, pre-vetted capability across <b>Process/SSC</b> and <b>Digital/AI</b> under a single PMO, with named full-time teams on-site from Day&nbsp;1 and overlapping waves that compress the timeline without compromising design quality.</p>
+    <div class="grid g3" style="margin-top:38px">
+      <div class="card"><div class="ic">◈</div><h3>Design-first, zero rework</h3><p>All processes and enterprise/AI architecture designed up-front (M0–M4) so build waves never stall on undecided design.</p></div>
+      <div class="card"><div class="ic">⇉</div><h3>Parallel wave execution</h3><p>Lighthouse build starts at M2 while design continues — overlapping waves collapse a 24-month programme into 12–15 months.</p></div>
+      <div class="card"><div class="ic">◉</div><h3>Single-point accountability</h3><p>Unified governance, one integrated PMO and one decision authority remove the 2–3 month coordination drag of multi-vendor models.</p></div>
+      <div class="card"><div class="ic">⚑</div><h3>Team readiness from Day 1</h3><p>Named, full-time, on-site pods across process, SSC, data, ERP and AI — no ramp-up delay.</p></div>
+      <div class="card"><div class="ic">⚙</div><h3>Early tech enablement</h3><p>SSC infrastructure, ERP sandbox and data platform stood up in M2–M3 to unlock rapid build.</p></div>
+      <div class="card"><div class="ic">↺</div><h3>Built to hand over</h3><p>Mixed-team model and KT milestones leave RCPL fully capable of running SSC and AI delivery independently by M15.</p></div>
+    </div>
+
+    <div class="card" style="margin-top:26px;border-left:5px solid var(--gold);background:var(--paper-2)">
+      <h3 style="color:var(--navy)">⚠ On the non-negotiable 9–15 month timeline</h3>
+      <p style="color:var(--text)">We have read the critical timeline requirement and respond to it directly: our operating model is built for velocity — pre-vetted pods on-site from Day&nbsp;1, overlapping waves, bi-weekly board steering and a weekly integrated PMO with single decision authority. This proposal shows exactly <i>how</i> both streams deliver at this pace, not merely that we can.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENT MODEL -->
+<section id="model" class="alt">
+  <div class="wrap reveal">
+    <span class="eyebrow">02 · Engagement Model</span>
+    <h2 class="title">Two integrated streams under a single PMO</h2>
+    <p class="lead">A single-firm model removes accountability gaps and integration risk. Two streams execute in parallel, designed together and governed as one.</p>
+    <div class="grid g2" style="margin-top:38px">
+      <div class="card">
+        <div class="ic">A</div>
+        <h3>Part A — Process, Org, SSC &amp; Change</h3>
+        <p style="margin-bottom:14px">Executed as a single integrated engagement with wave-based process transition: operating model, ~85 process re-designs, SSC stand-up across 10 towers, change management. <b>Full-scope</b>.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="uc-chip" style="cursor:default">10-tower SSC</span>
+          <span class="uc-chip" style="cursor:default">L5 process design</span>
+          <span class="uc-chip" style="cursor:default">Wave-based transition</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ic">B</div>
+        <h3>Part B — Digital, Data &amp; AI</h3>
+        <p style="margin-bottom:14px">Enterprise architecture, ERP modernisation, data lakehouse, AI/GenAI/agentic factory, automation &amp; cybersecurity. <b>Phase 1 design (M0–6) mandatory</b>; Phase 2 execution program management optional.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="uc-chip" style="cursor:default">S/4HANA-class ERP</span>
+          <span class="uc-chip" style="cursor:default">Databricks-class lake</span>
+          <span class="uc-chip" style="cursor:default">AI factory</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:22px;border-left:5px solid var(--gold)">
+      <h3 style="color:var(--navy)">◎ Part B runs in lockstep with Part A</h3>
+      <p style="color:var(--text)">Part B Phase 1 (Digital Design) runs in parallel with Part A's Foundation &amp; Design stage (M0–6) in close collaboration — so the digital landscape, data model and automation designs align to the to-be process architecture and SSC/Retained org requirements from the outset. No design happens in isolation.</p>
+    </div>
+
+    <div class="grid g4" style="margin-top:26px">
+      <div class="card" style="text-align:center"><b style="font-size:30px;color:var(--navy)">2–3 mo</b><p style="margin-top:6px">coordination overhead removed vs multi-vendor</p></div>
+      <div class="card" style="text-align:center"><b style="font-size:30px;color:var(--navy)">1 PMO</b><p style="margin-top:6px">unified design, delivery &amp; transition</p></div>
+      <div class="card" style="text-align:center"><b style="font-size:30px;color:var(--navy)">Bi-weekly</b><p style="margin-top:6px">board steering cadence</p></div>
+      <div class="card" style="text-align:center"><b style="font-size:30px;color:var(--navy)">40% FTE</b><p style="margin-top:6px">RCPL internal team co-located from Day 1</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY PLAN / TIMELINE -->
+<section id="plan">
+  <div class="wrap reveal">
+    <span class="eyebrow">03 · Integrated Delivery Plan</span>
+    <h2 class="title">Four phases · 12 to 15 months to steady state</h2>
+    <p class="lead">Click any phase to see what it covers across process, digital/AI and governance. Overlapping waves mean build begins while design is still being finalised.</p>
+
+    <div class="tl">
+      <div class="tl-track">
+        <div class="tl-phase active" data-phase="0">
+          <div class="ph-months">M0 – M3</div>
+          <h4>Foundation &amp; Design</h4>
+          <p>Diagnostic · target operating model · SSC blueprint · L5 for all processes</p>
+          <span class="n">01</span>
+        </div>
+        <div class="tl-phase" data-phase="1">
+          <div class="ph-months">M2 – M6</div>
+          <h4>Lighthouse + Build Wave 1</h4>
+          <p>SSC live · 10–20 processes transitioned · first 15–20 AI use cases in prod</p>
+          <span class="n">02</span>
+        </div>
+        <div class="tl-phase" data-phase="2">
+          <div class="ph-months">M5 – M12</div>
+          <h4>Transform + Scale Wave 2</h4>
+          <p>Priority processes to SSC · AI factory to 50+ · ERP core modules live</p>
+          <span class="n">03</span>
+        </div>
+        <div class="tl-phase" data-phase="3">
+          <div class="ph-months">M9 – M15</div>
+          <h4>Complete + Stabilise</h4>
+          <p>All BUs · 100+ AI in prod · capability transferred · steady-state</p>
+          <span class="n">04</span>
+        </div>
+      </div>
+
+      <div class="tl-detail show" id="tlDetail"><!-- filled by JS --></div>
+    </div>
+  </div>
+</section>
+
+<!-- STREAMS -->
+<section id="stream1" class="alt">
+  <div class="wrap reveal">
+    <span class="eyebrow">04 · Scope of Work</span>
+    <h2 class="title">Part A &amp; Part B — click to switch</h2>
+    <p class="lead">Our approach mapped to every RFP workstream — A1–A11 (Process, Org, SSC &amp; Change) and B1–B11 (Digital, Data &amp; AI).</p>
+
+    <div class="card" style="margin-bottom:26px;border-left:5px solid var(--gold);background:var(--paper-2)">
+      <h3 style="color:var(--navy)">◆ Recommendation: Transform in Flight</h3>
+      <p style="color:var(--text)">Best-practice FMCG SSC transformation combines early quick wins with systematic redesign. <b>(1) Lighthouse wave</b> — lift-and-shift simple, high-volume processes to prove the SSC model and lock early savings. <b>(2) Transform waves</b> — transition redesigned processes with automation embedded directly to SSC, so there is no double-move. This avoids "lift junk, then fix junk" while still capturing cost benefits early. RCPL and the bidder jointly sequence the waves during Foundation based on process complexity, automation readiness and BU dependency.</p>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active" data-tab="s1"><span class="num">A</span> Process, Org, SSC &amp; Change</div>
+      <div class="tab" data-tab="s2"><span class="num">B</span> Digital, Data &amp; AI</div>
+    </div>
+
+    <!-- Part A -->
+    <div class="tab-panel active" id="s1">
+      <div class="mandate">
+        <div>
+          <h3 style="color:var(--navy);font-size:20px;margin-bottom:6px">Part A — a single integrated, wave-based transition</h3>
+          <p style="color:var(--muted)">We design the future operating model, re-engineer ~85 processes to L5, stand up a 10-tower SSC and manage a wave-based transition — with 100% clarity on SSC vs Retained vs Corporate accountability and SOX-equivalent audit readiness.</p>
+          <div class="grid g4" style="margin-top:20px;gap:12px">
+            <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">10</b><p style="font-size:12px">SSC towers</p></div>
+            <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">~85</b><p style="font-size:12px">processes re-designed</p></div>
+            <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">100%</b><p style="font-size:12px">L5 &amp; SOP clarity</p></div>
+            <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">YoY</b><p style="font-size:12px">savings glide path</p></div>
+          </div>
+        </div>
+        <ul class="deliv-list">
+          <li><span class="tag">A1</span> Operating Model Design — future model across BU, corporate &amp; SSC layers; accountabilities; decision rights; governance.</li>
+          <li><span class="tag">A2</span> Process Architecture (As-Is) — L1–L5 mapping for ~60 enabling + 25 priority value-chain processes; pain-point &amp; opportunity capture.</li>
+          <li><span class="tag">A3</span> Process Re-engineering (To-Be) — L5 designs for ALL in-scope processes; standardisation, digitisation &amp; automation embedding.</li>
+          <li><span class="tag">A4</span> SSC Design &amp; Stand-up — blueprint across 10 towers: F&amp;A, HR, Procurement, SCP, TMS, Order Mgmt, Pricing, MDM, Analytics, IT Service Desk; site &amp; tech strategy.</li>
+          <li><span class="tag">A5</span> Retained Organisation Design — roles, structures &amp; capabilities; clear BU–SSC–Corporate interface.</li>
+          <li><span class="tag">A6</span> Sizing &amp; Talent Strategy — FTE sizing; talent assessment; location strategy; hiring/reallocation plan; GCC/BPO partner strategy.</li>
+          <li><span class="tag">A7</span> SOPs, KPIs, RACI &amp; Controls — 100% documented process maps, SOPs, KPIs/KRAs, RACI &amp; internal controls.</li>
+          <li><span class="tag">A8</span> Service Management Framework — SLAs, governance forums, escalation paths, performance dashboards, continuous improvement.</li>
+          <li><span class="tag">A9</span> Risk, Compliance &amp; Audit Readiness — risk register; control framework; statutory mapping; SOX-equivalent readiness.</li>
+          <li><span class="tag">A10</span> Transition &amp; Change Management — wave-based plan; stakeholder strategy; comms; training; cutover; stabilisation.</li>
+          <li><span class="tag">A11</span> Integrated Business Case — consolidated YoY savings &amp; investment case with wave-wise tracking.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Part B -->
+    <div class="tab-panel" id="s2">
+      <div class="mandate">
+        <div>
+          <h3 style="color:var(--navy);font-size:20px;margin-bottom:6px">Part B — Digital Design (Phase 1, mandatory)</h3>
+          <p style="color:var(--muted)">Phase 1 runs in parallel with Part A's Foundation &amp; Design (M0–6), producing the enterprise architecture, data/AI platform design, ERP target state and the 100+ use-case roadmap — all aligned to the to-be process architecture. Phase 2 execution program management is optional.</p>
+          <div class="grid g4" style="margin-top:20px;gap:12px">
+            <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">100+</b><p style="font-size:12px">AI use-case roadmap</p></div>
+            <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">S/4</b><p style="font-size:12px">HANA-class ERP</p></div>
+            <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">M0–6</b><p style="font-size:12px">Phase 1 design</p></div>
+            <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">DPDP</b><p style="font-size:12px">Act 2023 compliant</p></div>
+          </div>
+        </div>
+        <ul class="deliv-list">
+          <li><span class="tag">B1</span> Digital Strategy &amp; Enterprise Architecture — digital vision; target business/app/data/tech/security architecture incorporating SSC &amp; Retained needs; architecture governance.</li>
+          <li><span class="tag">B2</span> Application Landscape Rationalisation — current-state inventory; build-buy-replace &amp; sunset plan aligned to the new operating model.</li>
+          <li><span class="tag">B3</span> ERP Modernisation &amp; Process Digitisation — ERP target state (S/4HANA or equivalent) aligned to Part A to-be processes; module roadmap; digital workflows.</li>
+          <li><span class="tag">B4</span> Data Strategy &amp; Lakehouse Platform — data strategy; lakehouse design (Databricks-class); data products; governance; MDM; quality framework.</li>
+          <li><span class="tag">B5</span> Analytics, BI &amp; Control Tower — self-service BI; executive control tower with real-time KPIs; embedded analytics in SSC &amp; BU workflows.</li>
+          <li><span class="tag">B6</span> AI / GenAI / Agentic Strategy &amp; Roadmap — 100+ use cases across demand, supply, pricing, marketing, finance, HR, service; platform &amp; governance design.</li>
+          <li><span class="tag">B7</span> Intelligent Automation Architecture — RPA, IDP, workflow, conversational interfaces; automation factory model; SSC integration.</li>
+          <li><span class="tag">B8</span> Integration &amp; API Strategy — integration backbone; API catalogue &amp; governance; event streaming; real-time data movement.</li>
+          <li><span class="tag">B9</span> Cybersecurity, Privacy &amp; AI Governance — security architecture; DPDP Act 2023 compliance; responsible AI, model risk, bias, audit trail.</li>
+          <li><span class="tag">B10</span> Tech Operating Model &amp; Talent — tech org design for SSC &amp; Retained; capability build; sourcing strategy; vendor management.</li>
+          <li><span class="tag">B11</span> Technology Investment Case — consolidated TCO/ROI; wave-aligned to Part A; focused on business-KPI &amp; productivity outcomes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI FACTORY / USE CASE EXPLORER -->
+<section id="ai" class="dark">
+  <div class="wrap reveal">
+    <span class="eyebrow">05 · The AI Factory</span>
+    <h2 class="title">100+ use cases — explore the pipeline</h2>
+    <p class="lead">A representative slice of the use-case factory. Filter by domain to see how AI, GenAI and agentic automation embed into everyday RCPL operations. Beverages is the anchor BU for the first 15–20 MVPs.</p>
+
+    <div class="uc-controls" id="ucControls">
+      <span class="uc-chip active" data-f="all">All</span>
+      <span class="uc-chip" data-f="Demand">Demand</span>
+      <span class="uc-chip" data-f="Supply">Supply</span>
+      <span class="uc-chip" data-f="Pricing">Pricing</span>
+      <span class="uc-chip" data-f="Marketing">Marketing</span>
+      <span class="uc-chip" data-f="Finance">Finance</span>
+      <span class="uc-chip" data-f="HR">HR</span>
+      <span class="uc-chip" data-f="Service">Customer Service</span>
+      <span class="uc-count"><b id="ucNum">12</b> of 100+ shown</span>
+    </div>
+
+    <div class="uc-grid" id="ucGrid"><!-- filled by JS --></div>
+    <p style="text-align:center;color:#7f8ea3;font-size:13px;margin-top:22px">Full 100+ use-case roadmap with value sizing, sequencing and BU rollout is provided in the Part B annexe.</p>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="wrap reveal">
+    <span class="eyebrow">06 · Team Composition</span>
+    <h2 class="title">Named leaders, on-site from Day 1</h2>
+    <p class="lead">Full-time, pre-vetted pods co-located with RCPL's named internal team. Partner and Engagement Director involved throughout; stream and workstream leads named in Volume 1 CVs.</p>
+    <div class="team-grid" style="margin-top:36px">
+      <div class="member"><div class="avatar">EP</div><h4>Engagement Partner</h4><div class="role">Single accountability</div><p>25+ yrs FMCG India transformation. Board sponsor and single decision authority.</p></div>
+      <div class="member"><div class="avatar">ED</div><h4>Engagement Director</h4><div class="role">Integrated PMO lead</div><p>Runs the weekly integrated PMO across both streams; owns the 15-month plan.</p></div>
+      <div class="member"><div class="avatar">PA</div><h4>Part A Lead</h4><div class="role">Process, Org &amp; SSC</div><p>SSC design &amp; stand-up; multi-tower FMCG shared services track record.</p></div>
+      <div class="member"><div class="avatar">PB</div><h4>Part B Lead</h4><div class="role">Digital, Data &amp; AI</div><p>Enterprise architecture, ERP modernisation and AI factory delivery.</p></div>
+      <div class="member"><div class="avatar">AI</div><h4>AI Factory Lead</h4><div class="role">GenAI &amp; agentic</div><p>Owns the 100+ use-case pipeline, MVPs and responsible-AI governance.</p></div>
+      <div class="member"><div class="avatar">DE</div><h4>Data &amp; ERP Lead</h4><div class="role">Lakehouse &amp; S/4HANA</div><p>Data platform, MDM, integration backbone and ERP core modules.</p></div>
+      <div class="member"><div class="avatar">CM</div><h4>Change &amp; Transition Lead</h4><div class="role">Adoption</div><p>Wave-based transition, training, stabilisation and capability transfer.</p></div>
+      <div class="member"><div class="avatar">CB</div><h4>RCPL Mixed Team</h4><div class="role">40% FTE co-located</div><p>Named RCPL internal team embedded in every pod for exit readiness.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="cases" class="alt">
+  <div class="wrap reveal">
+    <span class="eyebrow">07 · Case Studies</span>
+    <h2 class="title">Recent, integrated, delivered fast</h2>
+    <p class="lead">Three representative engagements — recent Indian FMCG, integrated process + digital/AI, delivered in under 18 months. Full references provided in Volume 1.</p>
+    <div class="cs-grid" style="margin-top:36px">
+      <div class="cs">
+        <div class="cs-top"><div class="sector">FMCG · Foods &amp; Beverages · India</div><h4>SSC stand-up + AI demand engine</h4></div>
+        <div class="cs-body">
+          <p>10-tower shared services centre built and transitioned across 4 BUs while a GenAI demand-forecasting engine went live — single integrated programme.</p>
+          <div class="cs-metrics"><div><b>14 mo</b><small>to steady state</small></div><div><b>28%</b><small>opex reduction</small></div><div><b>60+</b><small>AI use cases live</small></div></div>
+        </div>
+      </div>
+      <div class="cs">
+        <div class="cs-top"><div class="sector">FMCG · Personal Care · India</div><h4>S/4HANA + data lakehouse</h4></div>
+        <div class="cs-body">
+          <p>ERP modernisation and a governed lakehouse delivered together, feeding a real-time executive control tower across finance and supply chain.</p>
+          <div class="cs-metrics"><div><b>16 mo</b><small>end-to-end</small></div><div><b>99%</b><small>MDM accuracy</small></div><div><b>1</b><small>control tower</small></div></div>
+        </div>
+      </div>
+      <div class="cs">
+        <div class="cs-top"><div class="sector">FMCG · Beverages · India</div><h4>Agentic automation at scale</h4></div>
+        <div class="cs-body">
+          <p>Agentic AI and IDP embedded into order-to-cash and procure-to-pay, integrated with a newly stood-up SSC — from pilot to 100+ processes.</p>
+          <div class="cs-metrics"><div><b>12 mo</b><small>pilot to scale</small></div><div><b>100+</b><small>processes automated</small></div><div><b>3x</b><small>throughput</small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITY TRANSFER -->
+<section id="transfer" class="dark">
+  <div class="wrap reveal">
+    <span class="eyebrow">08 · Capability Transfer</span>
+    <h2 class="title">Built so RCPL runs it alone by M15</h2>
+    <p class="lead">A mixed-team model, explicit KT milestones and a graduated exit leave RCPL fully capable of running SSC and continuing digital/AI delivery independently — consultant in advisory mode only post-M15.</p>
+    <div class="stats" style="margin-top:40px">
+      <div class="stat"><b>40%</b><small>RCPL FTE embedded Day 1</small></div>
+      <div class="stat"><b>4</b><small>KT milestone gates</small></div>
+      <div class="stat"><b>M15</b><small>full independence</small></div>
+      <div class="stat"><b>Advisory</b><small>post-M15 mode only</small></div>
+    </div>
+    <div class="grid g3" style="margin-top:36px">
+      <div class="card" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12);color:#e7edf5"><div class="ic">◑</div><h3 style="color:#fff">Mixed-team model</h3><p style="color:#a9b8cc">Every pod pairs consultant experts with named RCPL staff who progressively lead the work.</p></div>
+      <div class="card" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12);color:#e7edf5"><div class="ic">✓</div><h3 style="color:#fff">KT milestone gates</h3><p style="color:#a9b8cc">Formal readiness gates at each phase — shadow, reverse-shadow, then RCPL-led with support.</p></div>
+      <div class="card" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12);color:#e7edf5"><div class="ic">⇥</div><h3 style="color:#fff">Graduated exit</h3><p style="color:#a9b8cc">Consultant footprint tapers to advisory-only, with tooling, SOPs and playbooks fully handed over.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVALUATION SCORECARD -->
+<section id="eval">
+  <div class="wrap reveal">
+    <span class="eyebrow">09 · Technical Evaluation Map</span>
+    <h2 class="title">How this proposal scores against your criteria</h2>
+    <p class="lead">Each of RCPL's technical evaluation criteria (60% of total), mapped to where in this proposal it is addressed.</p>
+    <div style="overflow-x:auto;margin-top:30px">
+      <table class="eval-table">
+        <thead><tr><th style="width:34%">Criterion</th><th style="width:20%">Weight</th><th>Where we address it</th></tr></thead>
+        <tbody>
+          <tr><td><b>Integrated capability</b><br><small>process/SSC AND digital/AI depth</small></td><td><div class="wbar"><span style="width:100%"></span></div><small>25%</small></td><td><a href="#model" class="link">Engagement Model</a>, <a href="#stream1" class="link">Scope A&nbsp;&amp; B</a>, <a href="#cases" class="link">Case studies</a></td></tr>
+          <tr><td><b>12–15 month delivery plan</b><br><small>credibility, risk, parallel execution, governance</small></td><td><div class="wbar"><span style="width:80%"></span></div><small>20%</small></td><td><a href="#plan" class="link">Integrated Delivery Plan</a> — 4-phase overlapping-wave timeline</td></tr>
+          <tr><td><b>AI / automation depth</b><br><small>GenAI, agentic, 100+ use-case factory</small></td><td><div class="wbar"><span style="width:60%"></span></div><small>15%</small></td><td><a href="#ai" class="link">The AI Factory</a> — use-case explorer</td></tr>
+          <tr><td><b>Team strength</b><br><small>partner involvement, named leads, on-site</small></td><td><div class="wbar"><span style="width:60%"></span></div><small>15%</small></td><td><a href="#team" class="link">Team Composition</a></td></tr>
+          <tr><td><b>Methodology, tools, accelerators</b><br><small>process, SSC, AI, ERP, data</small></td><td><div class="wbar"><span style="width:40%"></span></div><small>10%</small></td><td><a href="#stream1" class="link">Scope A&nbsp;&amp; B</a> &amp; annexes</td></tr>
+          <tr><td><b>Reference quality</b><br><small>recent FMCG India, integrated, velocity</small></td><td><div class="wbar"><span style="width:60%"></span></div><small>15%</small></td><td><a href="#cases" class="link">Case Studies</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <h3>Ready to deliver both streams at velocity.</h3>
+      <p style="max-width:560px">This interactive proposal accompanies Volume 1 (Technical) and Volume 2 (Commercial). We welcome an orals session to walk RCPL through the integrated delivery plan and AI factory live.</p>
+    </div>
+    <div class="contact">
+      <div><b>Submitted by</b> NOVARETH Advisory <span style="color:#6b7688">(placeholder — replace with your firm)</span></div>
+      <div><b>In response to</b> RFP TR/2026/002</div>
+      <div><b>Client</b> Reliance Consumer Products Limited</div>
+      <div><b>Volume</b> 1 — Technical Proposal (interactive companion)</div>
+      <a href="#summary" class="btn btn-gold" style="margin-top:16px">↑ Back to top</a>
+    </div>
+  </div>
+  <div class="wrap"><div class="foot-note">Confidential — prepared solely for RCPL evaluation. Firm name, CVs, references and metrics shown are placeholders to be completed by the bidding firm. · Interactive HTML proposal.</div></div>
+</footer>
+
+<script>
+/* ============================================================
+   DATA — TIMELINE
+   ============================================================ */
+const PHASES = [
+  {t:"Foundation & Design", m:"M0 – M3",
+   process:["Diagnostic across 5 BUs","Target operating model","SSC blueprint (10+ towers)","To-be L5 designs for ALL processes","Retained org design","SOPs / RACI / KPIs"],
+   digital:["Enterprise architecture","Data & AI platform design","ERP foundation direction","Digitalised processes, zero digital breaks","Integrated tech roadmap"],
+   gov:["Integrated PMO stood up","Bi-weekly board steering live","Single decision authority","Baseline business case"]},
+  {t:"Lighthouse + Build Wave 1", m:"M2 – M6",
+   process:["SSC infrastructure live","10–20 simple processes transitioned","Change & training kickoff","Service management framework"],
+   digital:["Review & recommend ERP foundation","Data lake + digital architecture","First 15–20 AI use cases in production (Beverages anchor)","Self-service BI foundation"],
+   gov:["Wave-1 cutover governance","Stabilisation tracking","KT milestone gate 1 (shadow)"]},
+  {t:"Transform + Scale Wave 2", m:"M5 – M12",
+   process:["Priority transformed processes to SSC","Automation embedded","Scale across Beverages + 2/3 BUs","Performance dashboards live"],
+   digital:["AI factory scaled to 50+ in production","ERP core modules live","Executive control tower","RPA/IDP automation factory"],
+   gov:["Wave-2 transition management","YoY savings glide path tracking","KT milestone gate 2 (reverse-shadow)"]},
+  {t:"Complete + Stabilise", m:"M9 – M15",
+   process:["Remaining BUs transitioned","SSC at full scope","100% documented SOPs/RACI/KPIs","Steady-state operations"],
+   digital:["100+ AI use cases in production","Data lake live to new operating model","Automated KPI tracking & exception mgmt","ERP modernised & integrated"],
+   gov:["Resources hired/trained/optimised","Full capability transfer","Consultant to advisory-only (post-M15)","Continuous improvement engine"]}
+];
+
+function renderPhase(i){
+  const p = PHASES[i];
+  const col = (title,arr)=>`<div><h5>${title}</h5><ul>${arr.map(x=>`<li>${x}</li>`).join("")}</ul></div>`;
+  document.getElementById("tlDetail").innerHTML =
+    `<span class="lbl">Phase ${i+1} · ${p.m}</span>
+     <h3>${p.t}</h3>
+     <div class="tl-cols">
+       ${col("Process, Org & SSC", p.process)}
+       ${col("Digital, Data & AI", p.digital)}
+       ${col("Governance & Transition", p.gov)}
+     </div>`;
+}
+document.querySelectorAll(".tl-phase").forEach(el=>{
+  el.addEventListener("click",()=>{
+    document.querySelectorAll(".tl-phase").forEach(x=>x.classList.remove("active"));
+    el.classList.add("active");
+    renderPhase(+el.dataset.phase);
+  });
+});
+renderPhase(0);
+
+/* ============================================================
+   DATA — USE CASES
+   ============================================================ */
+const USECASES = [
+  {dom:"Demand", t:"GenAI demand sensing", d:"LLM blends POS, weather & promo signals into SKU-level forecasts.", type:"GenAI"},
+  {dom:"Demand", t:"Agentic replenishment", d:"Autonomous agent proposes and places replenishment within guardrails.", type:"Agentic"},
+  {dom:"Supply", t:"Production schedule optimiser", d:"ML optimises line scheduling across plants to cut changeovers.", type:"AI"},
+  {dom:"Supply", t:"IDP for GRN & invoices", d:"Intelligent document processing auto-captures goods receipts.", type:"AI"},
+  {dom:"Pricing", t:"Dynamic trade promo ROI", d:"GenAI simulates promo scenarios and recommends optimal spend.", type:"GenAI"},
+  {dom:"Pricing", t:"Agentic price monitoring", d:"Agent watches competitor pricing and flags/acts on gaps.", type:"Agentic"},
+  {dom:"Marketing", t:"GenAI content studio", d:"On-brand campaign copy & creatives generated at BU scale.", type:"GenAI"},
+  {dom:"Marketing", t:"Media-mix optimiser", d:"ML attributes spend to outcomes across channels.", type:"AI"},
+  {dom:"Finance", t:"Autonomous close copilot", d:"Agentic reconciliation and anomaly detection in R2R.", type:"Agentic"},
+  {dom:"Finance", t:"GenAI variance narratives", d:"Auto-drafted management commentary on P&L movements.", type:"GenAI"},
+  {dom:"HR", t:"Recruiting screening copilot", d:"GenAI shortlists and drafts interview kits for SSC hiring.", type:"GenAI"},
+  {dom:"HR", t:"Employee policy assistant", d:"Conversational assistant answers HR policy queries 24/7.", type:"GenAI"},
+  {dom:"Service", t:"Agentic customer resolution", d:"Agent triages, resolves & escalates order/service tickets.", type:"Agentic"},
+  {dom:"Service", t:"Voice-of-customer analytics", d:"NLP surfaces themes and sentiment across channels.", type:"AI"},
+  {dom:"Supply", t:"Predictive maintenance", d:"Sensor ML predicts line failures before downtime.", type:"AI"},
+  {dom:"Finance", t:"IDP accounts payable", d:"Touchless invoice-to-pay with exception routing.", type:"AI"},
+];
+
+const grid = document.getElementById("ucGrid");
+const numEl = document.getElementById("ucNum");
+function renderUC(filter="all"){
+  const items = filter==="all" ? USECASES : USECASES.filter(u=>u.dom===filter);
+  grid.innerHTML = items.map(u=>`
+    <div class="uc" data-type="${u.type}">
+      <div class="dom">${u.dom}</div>
+      <h4>${u.t}</h4>
+      <p>${u.d}</p>
+      <span class="type">${u.type}</span>
+    </div>`).join("");
+  numEl.textContent = items.length;
+}
+renderUC();
+document.querySelectorAll("#ucControls .uc-chip").forEach(chip=>{
+  chip.addEventListener("click",()=>{
+    document.querySelectorAll("#ucControls .uc-chip").forEach(c=>c.classList.remove("active"));
+    chip.classList.add("active");
+    renderUC(chip.dataset.f);
+  });
+});
+
+/* ============================================================
+   TABS
+   ============================================================ */
+document.querySelectorAll(".tab").forEach(tab=>{
+  tab.addEventListener("click",()=>{
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    document.querySelectorAll(".tab-panel").forEach(p=>p.classList.remove("active"));
+    tab.classList.add("active");
+    document.getElementById(tab.dataset.tab).classList.add("active");
+  });
+});
+
+/* ============================================================
+   SCROLL: progress bar, active nav, reveal
+   ============================================================ */
+const bar = document.getElementById("scrollBar");
+const navA = document.querySelectorAll(".nav-links a");
+const secs = [...document.querySelectorAll("section")];
+function onScroll(){
+  const h = document.documentElement;
+  const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+  bar.style.width = (p*100)+"%";
+  let cur = "";
+  secs.forEach(s=>{ if(h.scrollTop >= s.offsetTop - 120) cur = s.id; });
+  navA.forEach(a=>a.classList.toggle("active", a.getAttribute("href")==="#"+cur));
+}
+window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
+
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* mobile nav */
+const toggle = document.querySelector(".nav-toggle");
+const links = document.getElementById("navLinks");
+toggle.addEventListener("click",()=>links.classList.toggle("open"));
+links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>links.classList.remove("open")));
+</script>
+</body>
+</html>
