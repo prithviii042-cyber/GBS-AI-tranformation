@@ -1,28 +1,91 @@
 # Detailed Delivery Approach — RCPL AI-Enabled Enterprise Transformation
 ### How we execute the 12–15 month integrated engagement
 
-This is the *delivery methodology* — the detailed "how" behind the proposal. It feeds
-three Volume 1 sections directly: the **Integrated Delivery Plan** (max 10pp), the
+This is the *delivery methodology* — the detailed "how" behind the proposal, anchored on
+the target operating model (§0). It feeds the Volume 1 sections directly: the **Strategic
+Foundation / Executive Summary**, the **Integrated Delivery Plan** (max 10pp), the
 **Part A approach** (max 8pp), and the **Part B approach** (max 10pp). Structure and
-metrics reconcile with `index.html`, `APPROACH-NOTE.md`, and the Volume 2 business case.
+metrics reconcile with `index.html`, `approach.html`, `APPROACH-NOTE.md`, and the
+Volume 2 business case.
 
 ---
 
-## 0. Delivery philosophy — the seven operating principles
+## 0. Strategic foundation — the target operating model
 
-Everything below is an expression of these. State them up front in the proposal; they *are* the answer to "how is the timeline real?"
+Before the "how" comes the "toward what". Our approach is anchored on a proven
+operating-model design framework — **EY / FP&A Trends Group, *FP&A Operating Model
+Trends Research 2026*** — which we apply enterprise-wide across the Shared Services
+scope. It resolves an operating model through four building blocks: **five design levers**
+combine into one of **five archetypes**, supported by **six readiness dimensions** and a
+**five-level agency ladder**. RCPL's target is **archetype A4 — System-Governed Design**.
 
-1. **Design-first, build-parallel.** All process + architecture design is locked up-front (M0–M4) so build waves never stall on an undecided design. Build (Lighthouse) starts M2 while design continues — overlap is how 24 months becomes 12–15.
-2. **One integrated design authority.** Part A (process) and Part B (digital/AI) design in the *same* room against the *same* to-be model. No "throw over the wall."
-3. **Transform in Flight.** Lighthouse (lift-and-shift simple/high-volume to prove SSC + lock savings) → Transform waves (redesigned + automated processes moved once). Avoids "lift junk, then fix junk" and double-moves.
-4. **Fusion pods, RCPL-embedded.** Every pod is a mixed consultant + RCPL team (40% RCPL FTE) from Day 1 — delivery and capability transfer are the same activity, not sequential.
-5. **Thin-slice to production early.** AI and process value ships in weeks, not at the end — first 15–20 AI use cases and 10–20 processes live by M6, proving the model before scale.
-6. **Governed velocity.** Weekly integrated PMO + bi-weekly board + single decision authority. Speed comes from *removing decision latency*, not from cutting rigour.
-7. **Exit-ready by design.** KT gates, playbooks and a tapering footprint are built in from M0 — the end-state (RCPL runs it alone) is engineered, not hoped for.
+### 0.1 Why System-Governed ("system-driven")
+
+System-Governed Design is built for **autonomy**: work initiation moves from human to
+system — continuously and at scale, without waiting to be asked. Humans architect the
+system and its governance; the system produces the analysis and acts. It is the *only*
+archetype that reaches full **Governed Autonomy (agency Level 5)**.
+
+It is the right North Star for RCPL because:
+- It matches the mandate exactly — **100+ AI/agentic use cases in production** and a self-optimising enterprise.
+- Its prescribed path — *phased deployment starting with lower-risk, high-volume processes* — **is** the RFP's Lighthouse-then-Transform wave strategy.
+- It fits where **decision latency is a competitive risk**: demand, supply and pricing at FMCG scale.
+- Its non-negotiable — establish governance, data quality and controls *before* autonomy scales — aligns with design-first, DPDP and SOX-equivalent.
+
+**Lever configuration (A4):** Role & Mandate → *Level 5, Value Architect / Decision-System Designer* · Placement & Proximity → *System-led* · Scope of Accountability → *Decision-System Design* · Process Standardisation → *System-led, continuous* · Sourcing Boundaries → *Platform / managed services*.
+
+### 0.2 The six readiness dimensions — the foundations we build first
+
+System initiation requires common data, model logic and trigger conditions, so readiness is built **before** agency climbs. Each dimension maps to specific workstreams.
+
+| Readiness dimension | What it means | Built by |
+|---|---|---|
+| **Data Quality** | Clean, trusted, common data | B4 lakehouse + MDM + quality framework |
+| **Technology Enablement** | ERP, integration, AI platform | B3 ERP · B8 integration/APIs · B6–B7 AI/automation |
+| **Process Discipline** | Standardised, automatable processes | A2/A3 L5 re-engineering · A7 SOP/controls |
+| **Governance & Decision Rights** | Who/what can initiate & approve | A1 operating model · A9 controls · B9 AI governance |
+| **Roles & Skills** | Decision Engineer → Accountable Architect | A6 talent · B10 tech org · capability transfer |
+| **Cultural Readiness** | Trust in system-initiated work | A10 change management + adoption |
+
+### 0.3 The agency ladder — the journey the waves climb
+
+"Agency" is how far work is initiated by systems rather than people. Each wave lifts *suitable* processes one rung — **never faster than governance and data can sustain**.
+
+| Agency level | Meaning | Wave |
+|---|---|---|
+| **L1 — Human Initiation** | People initiate and own all work | Baseline (today) |
+| **L2 — Structured Human Initiation** | Standardised, documented, human-initiated | Lighthouse (M2–M6) |
+| **L3 — System-Assisted Initiation** | Systems suggest, humans decide (copilots) | Build Wave 1 (M2–M6) |
+| **L4 — Supervised System Initiation** | Systems act within bounds; humans supervise by exception | Transform Wave 2 (M5–M12) |
+| **L5 — Governed Autonomy** | System monitors & acts 24/7 under full governance | Complete + Stabilise (M9–M15) |
+
+### 0.4 Four guardrails for governed autonomy
+
+In a System-Governed model the human circuit-breaker is gone, so governance must replace it. These four are **mandatory beyond Level 3 agency**:
+
+1. **Reversibility** — every system-initiated action can be undone within a defined window.
+2. **Anomaly alerts** — unusual results are flagged and routed to a named human.
+3. **Independent checks** — model/planning logic is periodically reviewed by someone not involved in building it.
+4. **Named override** — a named person can halt any system-initiated activity at any time.
 
 ---
 
-## 1. Mobilisation — the first 90 days in detail
+## 1. Delivery philosophy — the eight operating principles
+
+Everything below is an expression of these. They *are* the answer to "how is the timeline real?" and each ties back to the target operating model.
+
+1. **Design-first, build-parallel.** All process + architecture design is locked up-front (M0–M4) so build waves never stall. Build (Lighthouse) starts M2 while design continues — overlap is how 24 months becomes 12–15.
+2. **Readiness before autonomy.** System initiation needs common data, model logic and trigger conditions. We build the six readiness dimensions first — governance and data quality lead, agency follows.
+3. **One integrated design authority.** Part A (process) and Part B (digital/AI) design in the *same* room against the *same* to-be model. No "throw over the wall."
+4. **Transform in Flight.** Lighthouse lifts simple/high-volume processes (agency L2) to prove SSC + lock savings → Transform waves move redesigned + automated processes once. Avoids "lift junk, then fix junk."
+5. **Fusion pods, RCPL-embedded.** Every pod is a mixed consultant + RCPL team (40% RCPL FTE) from Day 1 — delivery and capability transfer are the same activity.
+6. **Thin-slice to production early.** First 15–20 AI use cases and 10–20 processes live by M6 (agency L3) — prove system-assisted initiation before scale.
+7. **Governed velocity, autonomy as governance allows.** Weekly PMO + bi-weekly board + single decision authority remove decision latency; agency never climbs faster than governance and the guardrails can sustain.
+8. **Exit-ready by design.** KT gates, playbooks and a tapering footprint from M0 — RCPL ends as the **Accountable Architect** of its own system, advisory-only post-M15.
+
+---
+
+## 2. Mobilisation — the first 90 days in detail
 
 The first 90 days decide the whole programme. No ramp-up delay is our biggest single promise, so we show exactly what happens.
 
@@ -37,33 +100,34 @@ The first 90 days decide the whole programme. No ramp-up delay is our biggest si
 ### Weeks 2–6 — Diagnose (runs both streams in parallel)
 - **Part A diagnostic** — current-state across 5 BUs; process inventory (~60 enabling + 25 value-chain); pain-point & opportunity heatmaps; SSC readiness; baseline cost & FTE.
 - **Part B diagnostic** — application/data/AI-maturity assessment; integration landscape; tech pain-points; data-quality baseline; security & DPDP gap scan.
-- **Joint output** — a single integrated diagnostic and opportunity map (not two reports), and the **wave-sequencing hypothesis** (which processes/BUs go in which wave, jointly agreed with RCPL).
+- **Readiness baseline** — score the **six readiness dimensions** (§0.2) per tower to set each process's realistic starting agency level.
+- **Joint output** — a single integrated diagnostic and opportunity map (not two reports), and the **wave- and agency-sequencing hypothesis** (which processes/BUs go in which wave, to which agency level, jointly agreed with RCPL).
 
 ### Weeks 6–12 — Foundation design + Lighthouse launch
 - Target operating model, SSC blueprint (10 towers), enterprise/data/AI reference architecture, ERP target-state direction — all designed against each other.
 - **Lighthouse wave launches (~M2)** — 10–20 simple, high-volume processes begin lift-and-shift to prove the SSC model while design continues.
 - **AI factory intake opens** — first use cases scoped in Beverages (anchor BU).
 
-**Exit criteria for mobilisation (M3 stage gate):** operating model signed off; SSC blueprint approved; integrated architecture baselined; wave plan locked; Lighthouse live; PMO + governance operating at cadence; early tech environments provisioned.
+**Exit criteria for mobilisation (M3 stage gate):** operating model signed off (System-Governed target confirmed); SSC blueprint approved; integrated architecture baselined; six readiness dimensions baselined; wave- and agency-plan locked; Lighthouse live; PMO + governance operating at cadence; early tech environments provisioned.
 
 ---
 
-## 2. The wave model — what moves, when, and why
+## 3. The wave model — what moves, when, and why
 
 Four phases, overlapping. Each row shows the *content*, not just the label.
 
-| Phase | Months | Part A (Process/SSC) | Part B (Digital/AI) | Governance/Transfer |
+| Phase (agency) | Months | Part A (Process/SSC) | Part B (Digital/AI) | Governance/Transfer |
 |---|---|---|---|---|
-| **Foundation & Design** | M0–M3 | Diagnostic; TOM; SSC blueprint (10 towers); to-be L5 for ALL processes; retained org; SOP/RACI/KPI | Enterprise/data/AI architecture; ERP target state; app rationalisation; 100+ use-case roadmap; investment case | PMO live; board cadence; Design Authority; baseline business case |
-| **Lighthouse + Build Wave 1** | M2–M6 | SSC infra live; 10–20 simple processes transitioned (lift-and-shift); service mgmt framework | Data lake + AI platform stood up; **first 15–20 AI use cases in production (Beverages)**; ERP foundation recommended; self-service BI | Wave-1 cutover governance; **KT gate 1 (shadow)**; hypercare |
-| **Transform + Scale Wave 2** | M5–M12 | Priority *redesigned* processes (automation embedded) to SSC; scale across Beverages + 2–3 BUs; dashboards live | **AI factory scaled to 50+ in production**; ERP core modules live; executive control tower; RPA/IDP factory | Wave-2 transition; YoY savings tracking; **KT gate 2 (reverse-shadow)** |
-| **Complete + Stabilise** | M9–M15 | Remaining BUs; SSC at full scope; 100% SOP/RACI/KPI; steady-state ops | **100+ AI in production**; data lake live to new model; automated KPI + exception mgmt; ERP integrated | Resources hired/trained/optimised; **KT gates 3–4 (RCPL-led → independent)**; consultant → advisory-only |
+| **Foundation & Design**<br>*agency L1 · design* | M0–M3 | Diagnostic; TOM; SSC blueprint (10 towers); to-be L5 for ALL processes; retained org; SOP/RACI/KPI | Enterprise/data/AI architecture; ERP target state; app rationalisation; 100+ use-case roadmap; investment case | PMO live; board cadence; Design Authority; six readiness dimensions baselined |
+| **Lighthouse + Build Wave 1**<br>*agency L2 → L3* | M2–M6 | SSC infra live; 10–20 simple processes transitioned (lift-and-shift, L2); service mgmt framework | Data lake + AI platform stood up; **first 15–20 AI use cases in production (Beverages, L3)**; ERP foundation recommended; self-service BI | Wave-1 cutover governance; **KT gate 1 (shadow)**; guardrails established for L3 |
+| **Transform + Scale Wave 2**<br>*agency L4 · supervised* | M5–M12 | Priority *redesigned* processes (automation embedded) to SSC; scale across Beverages + 2–3 BUs; dashboards live | **Agentic AI scaled to 50+ in production (supervised, L4)**; ERP core modules live; executive control tower; RPA/IDP factory | Wave-2 transition; YoY savings tracking; **KT gate 2 (reverse-shadow)** |
+| **Complete + Stabilise**<br>*agency L5 · governed autonomy* | M9–M15 | Remaining BUs; SSC at full scope; 100% SOP/RACI/KPI; steady-state ops | **100+ AI in production**; governed autonomy for low-risk, high-volume decisions (L5); automated KPI + exception mgmt; ERP integrated | Resources hired/trained/optimised; **KT gates 3–4 (RCPL-led → independent)**; consultant → advisory-only |
 
 **Wave-sequencing logic** (jointly agreed at Foundation): a process/BU enters a wave based on (a) complexity, (b) automation readiness, (c) BU dependency, (d) value at stake. Simple/high-volume → Lighthouse. High-value/redesign-heavy → Transform waves. Cross-BU dependencies pull items earlier.
 
 ---
 
-## 3. Part A — detailed method by workstream (A1–A11)
+## 4. Part A — detailed method by workstream (A1–A11)
 
 For each: **what we do → how we do it → key output.**
 
@@ -113,7 +177,7 @@ For each: **what we do → how we do it → key output.**
 
 ---
 
-## 4. Part B — detailed method by workstream (B1–B11)
+## 5. Part B — detailed method by workstream (B1–B11)
 
 Part B Phase 1 (Digital Design, M0–M6) is **mandatory** and runs lock-step with Part A Foundation. Phase 2 execution program management is optional and wave-aligned.
 
@@ -163,35 +227,35 @@ Part B Phase 1 (Digital Design, M0–M6) is **mandatory** and runs lock-step wit
 
 ---
 
-## 5. The AI factory — operating model in detail (the differentiator)
+## 6. The AI factory — operating model in detail (the differentiator)
 
 100+ use cases is not 100 projects. It is a **repeatable pipeline** with an operating model. This is where we win the 15% AI-depth score and reinforce integrated capability.
 
-### 5.1 The pipeline (idea → production → scale)
+### 6.1 The pipeline (idea → production → scale)
 1. **Intake & ideation** — sourced from the A2/A3 process opportunity register + BU workshops. Every use case is tied to a real to-be process, not invented in isolation.
 2. **Prioritisation** — value × feasibility scoring; sequenced by BU (Beverages first) and by data/automation readiness.
-3. **Design** — solution pattern chosen: analytical ML, GenAI, or **agentic** (autonomous within guardrails); data, integration and human-in-the-loop points defined.
+3. **Design** — solution pattern chosen: analytical ML, GenAI, or **agentic**; and the **target agency level** set (assisted L3, supervised L4, or governed-autonomous L5) with data, integration and human-in-the-loop points defined.
 4. **MVP sprint (2–6 weeks)** — thin-slice to a working, evaluated MVP. **15–20 MVPs in Beverages by M7.**
 5. **Validate** — business validation + responsible-AI checks (bias, model risk, DPDP) before production.
 6. **Productionise** — deploy on the platform with monitoring, guardrails and rollback.
 7. **Scale** — replicate the pattern across BUs; **50+ live by ~M12, 100+ by M15.**
 8. **Monitor & improve** — drift, cost, accuracy and value tracked; feedback to the pipeline.
 
-### 5.2 The platform
+### 6.2 The platform
 Lakehouse (B4) → feature store + model registry → **LLM gateway + prompt management + agent orchestration** → evaluation harness → guardrails/policy layer → observability. Automation factory (B7) and control tower (B5) plug into the same backbone (B8).
 
-### 5.3 The pod
+### 6.3 The pod
 **Fusion team:** AI/ML engineer + data engineer + process SME (from Part A) + RCPL member + responsible-AI reviewer. Same pod designs the process *and* the AI — that is why they embed cleanly.
 
-### 5.4 Representative use-case domains
+### 6.4 Representative use-case domains
 Demand (GenAI sensing, agentic replenishment) · Supply (schedule optimisation, predictive maintenance, IDP) · Pricing (promo-ROI simulation, agentic price monitoring) · Marketing (GenAI content studio, media-mix) · Finance (autonomous close copilot, touchless AP, variance narratives) · HR (screening copilot, policy assistant) · Customer Service (agentic resolution, VoC analytics). *Full value-sized 100+ roadmap in the Part B annexe.*
 
-### 5.5 Responsible AI (non-negotiable, ties to B9)
-Model-risk tiering, bias testing, full audit trail, human-in-the-loop for consequential decisions, DPDP-compliant data handling, and an AI governance board. Scale safely or you don't scale.
+### 6.5 Responsible AI (non-negotiable, ties to B9)
+Model-risk tiering, bias testing, full audit trail, human-in-the-loop for consequential decisions, DPDP-compliant data handling, and an AI governance board. The **four guardrails** (§0.4 — reversibility, anomaly alerts, independent checks, named override) are mandatory before any use case moves beyond agency Level 3. Scale safely or you don't scale.
 
 ---
 
-## 6. Keeping Part A and Part B integrated (the anti-silo mechanism)
+## 7. Keeping Part A and Part B integrated (the anti-silo mechanism)
 
 Integration is the highest-weighted capability (25%). We engineer it, not assert it:
 
@@ -203,7 +267,7 @@ Integration is the highest-weighted capability (25%). We engineer it, not assert
 
 ---
 
-## 7. Governance & PMO operating model
+## 8. Governance & PMO operating model
 
 | Tier | Cadence | Who | Decides |
 |---|---|---|---|
@@ -213,11 +277,11 @@ Integration is the highest-weighted capability (25%). We engineer it, not assert
 | **Pod stand-ups** | Daily/weekly | Fusion pods | Delivery execution |
 | **Change & Risk boards** | Weekly | Change Lead / Risk Lead + RCPL | Adoption, risk, controls |
 
-**Stage gates** at each phase/wave boundary with explicit exit criteria (see §1 for the M3 gate). **RAID + dependency + benefits** all live on one tool with a single source of truth. Speed is manufactured by **removing decision latency** — every decision has a named owner and an SLA.
+**Stage gates** at each phase/wave boundary with explicit exit criteria (see §2 for the M3 gate). **RAID + dependency + benefits** all live on one tool with a single source of truth. Speed is manufactured by **removing decision latency** — every decision has a named owner and an SLA.
 
 ---
 
-## 8. Change management & adoption
+## 9. Change management & adoption
 
 - **Structured method** (Prosci/ADKAR-style): awareness → desire → knowledge → ability → reinforcement, per stakeholder segment.
 - **Change network** — RCPL champions embedded in every BU/tower.
@@ -227,7 +291,7 @@ Integration is the highest-weighted capability (25%). We engineer it, not assert
 
 ---
 
-## 9. Capability transfer — the four-gate mechanic
+## 10. Capability transfer — the four-gate mechanic
 
 Exit-readiness is engineered from M0. Consultant footprint tapers to **advisory-only post-M15.**
 
@@ -242,7 +306,7 @@ Exit-readiness is engineered from M0. Consultant footprint tapers to **advisory-
 
 ---
 
-## 10. Value realisation & tracking
+## 11. Value realisation & tracking
 
 - **Baseline** cost/FTE/cycle-time/KPIs captured in the diagnostic.
 - **Glide path** — YoY savings modelled wave-wise (A11), reconciled to Volume 2.
@@ -251,7 +315,7 @@ Exit-readiness is engineered from M0. Consultant footprint tapers to **advisory-
 
 ---
 
-## 11. Delivery risks & mitigations
+## 12. Delivery risks & mitigations
 
 | Risk | Mitigation |
 |---|---|
@@ -267,7 +331,7 @@ Exit-readiness is engineered from M0. Consultant footprint tapers to **advisory-
 
 ---
 
-## 12. Tools, accelerators & assets (10% methodology score)
+## 13. Tools, accelerators & assets (10% methodology score)
 
 - **Process:** APQC-based L1–L5 taxonomy, FMCG process reference library, process-mining templates, SOP/RACI generators.
 - **SSC:** 10-tower blueprint accelerators, service-catalogue templates, FTE-sizing models, transition playbooks, cutover runbooks.
@@ -280,14 +344,15 @@ Exit-readiness is engineered from M0. Consultant footprint tapers to **advisory-
 
 ---
 
-## 13. How this maps to the proposal (writing guide)
+## 14. How this maps to the proposal (writing guide)
 
 | This section | Feeds Volume 1 section | Page budget |
 |---|---|---|
-| §0–2, §6–7, §10–11 | **Integrated delivery plan** | max 10 |
-| §3, §8, §9 | **Part A approach** | max 8 |
-| §4, §5 | **Part B approach** | max 10 |
-| §9 | **Capability transfer plan** | max 3 |
-| §12 | Methodology/accelerators (cross-cutting) | — |
+| §0 (operating model) | **Executive summary / Strategic foundation** | max 3 |
+| §1–3, §7–8, §11–12 | **Integrated delivery plan** | max 10 |
+| §4, §9, §10 | **Part A approach** | max 8 |
+| §5, §6 | **Part B approach** | max 10 |
+| §10 | **Capability transfer plan** | max 3 |
+| §13 | Methodology/accelerators (cross-cutting) | — |
 
 *Prepared as the detailed delivery approach. Pair with `index.html` (interactive companion), `APPROACH-NOTE.md` (bid strategy), and the Volume 2 business case.*
