@@ -271,6 +271,72 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
 .gov .cad{font-size:11px;font-weight:800;color:var(--gold-2);text-transform:uppercase;letter-spacing:1px}
 .gov h4{color:#fff;font-size:16px;margin:6px 0}.gov p{font-size:13px;color:#aab8cc}
 
+/* STREAM CREDIBILITY MODULES */
+.pov-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:24px}
+.pov{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;transition:.25s}
+.pov:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm);border-color:var(--gold-soft)}
+.pov .pn{font-size:12px;font-weight:800;color:var(--gold);letter-spacing:.5px}
+.pov h4{color:var(--navy);font-size:15px;margin:6px 0}
+.pov p{color:var(--muted);font-size:12.5px}
+.disp{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.disp span{flex:1;min-width:120px;text-align:center;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold-soft);border-radius:10px;padding:12px 10px;font-size:12.5px;color:var(--navy);font-weight:600}
+.disp span b{display:block;color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.tower-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:24px}
+.tower{cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center;transition:.2s}
+.tower:hover{transform:translateY(-3px);border-color:var(--gold)}
+.tower.active{background:var(--navy);border-color:var(--navy)}
+.tower .ti{font-size:20px}
+.tower .tn{font-size:12px;font-weight:700;color:var(--navy);margin-top:6px;line-height:1.15}
+.tower.active .tn{color:#fff}
+.tower .tw{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--gold);margin-top:4px}
+.tower.active .tw{color:var(--gold-2)}
+.tower-detail{margin-top:20px;background:var(--navy);color:#e7edf5;border-radius:16px;padding:28px;box-shadow:var(--shadow)}
+.tower-detail h3{color:#fff;font-size:22px}
+.tower-detail .td-scope{color:#c1cddd;font-size:14.5px;margin:10px 0 18px}
+.td-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.td-metrics .tm{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:12px;padding:14px}
+.td-metrics .tm b{display:block;font-size:22px;color:var(--gold-2);font-weight:800}
+.td-metrics .tm small{color:#93a3b8;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.td-kpi{margin-top:16px;font-size:13.5px;color:#c1cddd}.td-kpi b{color:var(--gold-2)}
+.arch-stack{display:grid;gap:10px;margin-top:24px}
+.layer{cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:16px;transition:.2s;border-left:4px solid var(--gold-soft)}
+.layer:hover{transform:translateX(4px);border-color:var(--gold)}
+.layer.active{background:var(--navy);border-color:var(--navy);border-left-color:var(--gold)}
+.layer .li{font-size:22px;flex:none}
+.layer .lt{font-weight:700;color:var(--navy);font-size:15px}
+.layer .ls{font-size:12.5px;color:var(--muted)}
+.layer.active .lt{color:#fff}.layer.active .ls{color:#aab8cc}
+.layer .lx{margin-left:auto;flex:none;font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.4px}
+.layer.active .lx{color:var(--gold-2)}
+.layer-detail{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow-sm)}
+.layer-detail h4{color:var(--navy);font-size:18px;margin-bottom:8px}
+.layer-detail p{color:var(--muted);font-size:14px;margin-bottom:12px}
+.layer-detail .opts{display:flex;flex-wrap:wrap;gap:8px}
+.layer-detail .opts span{background:var(--paper-2);border:1px solid var(--line);border-radius:100px;padding:5px 12px;font-size:12px;color:var(--navy);font-weight:600}
+.pat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.pat{cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center;transition:.2s;border-top:3px solid var(--line)}
+.pat:hover{transform:translateY(-4px);border-color:var(--gold)}
+.pat.active{border-top-color:var(--gold);box-shadow:var(--shadow-sm)}
+.pat .pi2{font-size:24px}
+.pat h4{color:var(--navy);font-size:15px;margin:6px 0 4px}
+.pat .pa{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--gold)}
+.pat-detail{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow-sm)}
+.pat-detail h4{color:var(--navy);font-size:18px;margin-bottom:6px}
+.pat-detail p{color:var(--muted);font-size:14px;margin-bottom:10px}
+.pat-detail .row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+.pat-detail .row div{background:var(--paper-2);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--navy)}
+.pat-detail .row b{display:block;color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.illus{font-size:12px;color:var(--muted);font-style:italic;margin-top:10px}
+.ai-panel .illus{color:#7f8ea3}
+.scope-fold{margin-top:26px;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:0 18px}
+.scope-fold summary{cursor:pointer;padding:16px 0;font-weight:700;color:var(--navy);font-size:14.5px}
+.scope-fold[open] summary{border-bottom:1px solid var(--line);margin-bottom:14px}
+.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-bottom:18px}
+.scope-grid .si{font-size:12.5px;color:var(--muted);padding:8px 10px;background:var(--paper-2);border-radius:8px}
+.scope-grid .si b{color:var(--gold)}
+@media(max-width:960px){.pov-grid,.tower-grid,.pat-grid{grid-template-columns:repeat(2,1fr)}.td-metrics,.pat-detail .row,.scope-grid{grid-template-columns:1fr}.disp span{min-width:100px}}
+@media(max-width:640px){.pov-grid,.tower-grid,.pat-grid{grid-template-columns:1fr}}
+
 /* FOOT */
 .foot{background:var(--ink);color:#c7d2e2;padding:60px 0 40px}
 .foot h3{color:#fff;font-size:26px;margin-bottom:10px}
@@ -455,35 +521,72 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
     <h2 class="title">SSC design, process re-engineering, org design &amp; change</h2>
     <p class="lead">Executed as a single integrated engagement with wave-based process transition. We design the future operating model, re-engineer ~85 processes to L5, stand up a 10-tower SSC and manage transition — with 100% clarity on SSC vs Retained vs Corporate accountability and SOX-equivalent audit readiness.</p>
 
-    <div class="card" style="margin-top:24px;border-left:5px solid var(--gold);background:var(--paper-2)">
-      <h3 style="color:var(--navy)">◆ Recommendation: Transform in Flight</h3>
-      <p style="color:var(--text)">Best-practice FMCG SSC transformation combines early quick wins with systematic redesign. <b>(1) Lighthouse wave</b> — lift-and-shift simple, high-volume processes to prove the SSC model and lock early savings. <b>(2) Transform waves</b> — transition redesigned processes with automation embedded directly to SSC, so there is no double-move. RCPL and the bidder jointly sequence the waves during Foundation based on process complexity, automation readiness and BU dependency.</p>
+    <span class="sub-eyebrow">Our point of view</span>
+    <h3 class="sub-title">Five design choices that separate a great SSC from an average one</h3>
+    <div class="pov-grid">
+      <div class="pov"><div class="pn">POV 1</div><h4>Process-led, not lift-and-shift</h4><p>We digitise and standardise before we transition. Lifting a broken process just relocates the cost — Transform-in-Flight moves it once, clean.</p></div>
+      <div class="pov"><div class="pn">POV 2</div><h4>A thin retained org</h4><p>Most "retained" teams quietly re-do the SSC's work. We design the leanest viable retained layer with a hard RACI at the seam — no shadow processing.</p></div>
+      <div class="pov"><div class="pn">POV 3</div><h4>Standardise 80, localise 20</h4><p>One global process design, with deliberate variation only where regulation or genuine market difference demands it. Standardisation is what makes automation possible.</p></div>
+      <div class="pov"><div class="pn">POV 4</div><h4>Automation-first design</h4><p>We design the to-be process with automation and AI already embedded — not a manual process we automate later. Every L5 is tagged with its automation hooks.</p></div>
+      <div class="pov"><div class="pn">POV 5</div><h4>Global process owners</h4><p>End-to-end accountability (O2C, P2P, H2R) sits with a named owner across BUs — killing the hand-off gaps that fragment FMCG operations.</p></div>
+    </div>
+    <p style="color:var(--muted);margin-top:20px;font-weight:600">Every process runs through a disposition decision before it moves:</p>
+    <div class="disp">
+      <span><b>Eliminate</b>non-value work</span>
+      <span><b>Simplify</b>cut steps &amp; hand-offs</span>
+      <span><b>Standardise</b>one global design</span>
+      <span><b>Automate</b>RPA / IDP / AI</span>
+      <span><b>Digitise</b>zero digital breaks</span>
+      <span><b>Retain</b>only where it must</span>
+    </div>
+    <div class="card" style="margin-top:20px;border-left:5px solid var(--gold);background:var(--paper-2)">
+      <h3 style="color:var(--navy)">◆ Transform in Flight — how the waves sequence</h3>
+      <p style="color:var(--text)"><b>(1) Lighthouse</b> lifts simple, high-volume processes to prove the SSC and lock early savings. <b>(2) Transform waves</b> move redesigned processes with automation embedded — no double-move. RCPL and the bidder jointly sequence waves during Foundation using the disposition above, plus complexity, automation readiness and BU dependency.</p>
     </div>
 
-    <div class="mandate">
-      <div>
-        <div class="grid g2" style="gap:12px">
-          <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">10</b><p style="font-size:12px">SSC towers</p></div>
-          <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">~85</b><p style="font-size:12px">processes re-designed</p></div>
-          <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">100%</b><p style="font-size:12px">L5 &amp; SOP clarity</p></div>
-          <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">YoY</b><p style="font-size:12px">savings glide path</p></div>
-        </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px"><span class="mini-chip">SSC design</span><span class="mini-chip">Process re-engineering</span><span class="mini-chip">Org design</span><span class="mini-chip">Change management</span></div>
-      </div>
-      <ul class="deliv-list">
-        <li><span class="tag">A1</span> Operating Model Design — future model across BU, corporate &amp; SSC layers; accountabilities; decision rights; governance.</li>
-        <li><span class="tag">A2</span> Process Architecture (As-Is) — L1–L5 mapping for ~60 enabling + 25 priority value-chain processes; pain-point &amp; opportunity capture.</li>
-        <li><span class="tag">A3</span> Process Re-engineering (To-Be) — L5 designs for ALL in-scope processes; standardisation, digitisation &amp; automation embedding.</li>
-        <li><span class="tag">A4</span> SSC Design &amp; Stand-up — blueprint across 10 towers: F&amp;A, HR, Procurement, SCP, TMS, Order Mgmt, Pricing, MDM, Analytics, IT Service Desk.</li>
-        <li><span class="tag">A5</span> Retained Organisation Design — roles, structures &amp; capabilities; clear BU–SSC–Corporate interface.</li>
-        <li><span class="tag">A6</span> Sizing &amp; Talent Strategy — FTE sizing; talent assessment; location strategy; hiring/reallocation; GCC/BPO partner strategy.</li>
-        <li><span class="tag">A7</span> SOPs, KPIs, RACI &amp; Controls — 100% documented process maps, SOPs, KPIs/KRAs, RACI &amp; internal controls.</li>
-        <li><span class="tag">A8</span> Service Management Framework — SLAs, governance forums, escalation paths, dashboards, continuous improvement.</li>
-        <li><span class="tag">A9</span> Risk, Compliance &amp; Audit Readiness — risk register; control framework; statutory mapping; SOX-equivalent readiness.</li>
-        <li><span class="tag">A10</span> Transition &amp; Change Management — wave-based plan; stakeholder strategy; comms; training; cutover; stabilisation.</li>
-        <li><span class="tag">A11</span> Integrated Business Case — consolidated YoY savings &amp; investment case with wave-wise tracking.</li>
-      </ul>
+    <span class="sub-eyebrow">The 10-tower Shared Services blueprint</span>
+    <h3 class="sub-title">We know each tower cold — click to explore</h3>
+    <p class="lead">For every tower: what sits in the SSC, its share of the SSC workforce, how much is automatable, the SSC-vs-retained split, and the KPIs it is run to.</p>
+    <div class="tower-grid" id="towerGrid"></div>
+    <div class="tower-detail" id="towerDetail"></div>
+    <p class="illus">FTE share, automation potential and SSC/Retained splits are illustrative FMCG ranges, refined against RCPL's actual baseline during the Foundation diagnostic.</p>
+
+    <span class="sub-eyebrow">What good looks like</span>
+    <h3 class="sub-title">FMCG Shared Services benchmarks</h3>
+    <div class="stats">
+      <div class="stat"><b>30–45%</b><small>cost-to-serve reduction</small></div>
+      <div class="stat"><b>40–60%</b><small>transactional volume automated</small></div>
+      <div class="stat"><b>95–99%</b><small>SLA attainment at steady state</small></div>
+      <div class="stat"><b>20–30%</b><small>FTE productivity uplift</small></div>
     </div>
+    <p class="illus">Illustrative FMCG-industry ranges — replace with the firm's proprietary benchmarks and RCPL's modelled targets in the submitted volume.</p>
+
+    <span class="sub-eyebrow">Scar tissue</span>
+    <h3 class="sub-title">Five ways SSC programmes fail — and how we prevent them</h3>
+    <div class="grid g3">
+      <div class="card"><div class="ic">✕</div><h3>Lift the mess</h3><p><b>Fix:</b> disposition + Transform-in-Flight — digitise/standardise before transition, so we never industrialise a broken process.</p></div>
+      <div class="card"><div class="ic">✕</div><h3>Fat retained org</h3><p><b>Fix:</b> thin retained layer with a hard RACI at the SSC seam and no duplicate processing rights.</p></div>
+      <div class="card"><div class="ic">✕</div><h3>SLA theatre</h3><p><b>Fix:</b> outcome KPIs and experience-level agreements (XLAs), not just green transactional SLAs.</p></div>
+      <div class="card"><div class="ic">✕</div><h3>Big-bang cutover</h3><p><b>Fix:</b> wave-based transition with shadow / reverse-shadow and structured hypercare per wave.</p></div>
+      <div class="card"><div class="ic">✕</div><h3>Change as an afterthought</h3><p><b>Fix:</b> embedded change network, role-based academy and adoption metrics from Day 1.</p></div>
+    </div>
+
+    <details class="scope-fold">
+      <summary>▸ Full RFP scope coverage — Stream 1 (A1–A11)</summary>
+      <div class="scope-grid">
+        <div class="si"><b>A1</b> Operating Model Design — BU/Corporate/SSC layers, decision rights, governance</div>
+        <div class="si"><b>A2</b> Process Architecture (As-Is) — L1–L5 for ~60 enabling + 25 value-chain</div>
+        <div class="si"><b>A3</b> Process Re-engineering (To-Be) — L5 for all, automation embedded</div>
+        <div class="si"><b>A4</b> SSC Design &amp; Stand-up — 10-tower blueprint</div>
+        <div class="si"><b>A5</b> Retained Organisation Design — thin layer, clear interface</div>
+        <div class="si"><b>A6</b> Sizing &amp; Talent — FTE, location, GCC/BPO strategy</div>
+        <div class="si"><b>A7</b> SOPs, KPIs, RACI &amp; Controls — 100% documented</div>
+        <div class="si"><b>A8</b> Service Management — SLAs, governance, dashboards</div>
+        <div class="si"><b>A9</b> Risk, Compliance &amp; Audit — SOX-equivalent readiness</div>
+        <div class="si"><b>A10</b> Transition &amp; Change — wave-based, training, cutover</div>
+        <div class="si"><b>A11</b> Integrated Business Case — YoY savings, wave-wise</div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -495,30 +598,28 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
     <h2 class="title">AI/GenAI roadmap &amp; factory, data lakehouse, ERP, automation</h2>
     <p class="lead">Part B Phase 1 (Digital Design, M0–6) is mandatory and runs in lockstep with Stream 1's Foundation — producing the enterprise architecture, data/AI platform design, ERP target state and the 100+ use-case roadmap, all aligned to the to-be process architecture. Phase 2 execution program management is optional.</p>
 
-    <div class="mandate">
-      <div>
-        <div class="grid g2" style="gap:12px">
-          <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">100+</b><p style="font-size:12px">AI use-case roadmap</p></div>
-          <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">S/4</b><p style="font-size:12px">HANA-class ERP</p></div>
-          <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">1</b><p style="font-size:12px">governed lakehouse</p></div>
-          <div class="card" style="padding:16px;text-align:center"><b style="font-size:26px;color:var(--navy)">DPDP</b><p style="font-size:12px">Act 2023 compliant</p></div>
-        </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px"><span class="mini-chip">AI/GenAI factory</span><span class="mini-chip">Data lakehouse</span><span class="mini-chip">ERP modernisation</span><span class="mini-chip">Automation</span></div>
-      </div>
-      <ul class="deliv-list">
-        <li><span class="tag">B1</span> Digital Strategy &amp; Enterprise Architecture — digital vision; target business/app/data/tech/security architecture; governance.</li>
-        <li><span class="tag">B2</span> Application Landscape Rationalisation — current-state inventory; build-buy-replace &amp; sunset plan aligned to the new operating model.</li>
-        <li><span class="tag">B3</span> ERP Modernisation &amp; Process Digitisation — ERP target state (S/4HANA or equivalent) aligned to Stream 1 processes; module roadmap.</li>
-        <li><span class="tag">B4</span> Data Strategy &amp; Lakehouse Platform — data strategy; lakehouse (Databricks-class); data products; governance; MDM; quality framework.</li>
-        <li><span class="tag">B5</span> Analytics, BI &amp; Control Tower — self-service BI; executive control tower with real-time KPIs; embedded analytics.</li>
-        <li><span class="tag">B6</span> AI / GenAI / Agentic Strategy &amp; Roadmap — 100+ use cases across demand, supply, pricing, marketing, finance, HR, service.</li>
-        <li><span class="tag">B7</span> Intelligent Automation Architecture — RPA, IDP, workflow, conversational interfaces; automation factory; SSC integration.</li>
-        <li><span class="tag">B8</span> Integration &amp; API Strategy — integration backbone; API catalogue &amp; governance; event streaming; real-time data movement.</li>
-        <li><span class="tag">B9</span> Cybersecurity, Privacy &amp; AI Governance — security architecture; DPDP Act 2023; responsible AI, model risk, bias, audit trail.</li>
-        <li><span class="tag">B10</span> Tech Operating Model &amp; Talent — tech org design for SSC &amp; Retained; capability build; sourcing strategy; vendor management.</li>
-        <li><span class="tag">B11</span> Technology Investment Case — consolidated TCO/ROI; wave-aligned to Stream 1; business-KPI &amp; productivity outcomes.</li>
-      </ul>
+    <span class="sub-eyebrow">Our point of view</span>
+    <h3 class="sub-title">Five architecture beliefs for a System-Governed enterprise</h3>
+    <div class="pov-grid">
+      <div class="pov"><div class="pn">POV 1</div><h4>Keep the ERP core clean</h4><p>Fit-to-standard on an S/4HANA-class core; innovation and custom logic live in side-by-side extensions — so upgrades stay cheap and the core stays fast.</p></div>
+      <div class="pov"><div class="pn">POV 2</div><h4>Data products, not data dumps</h4><p>A medallion lakehouse serving governed, owned <i>data products</i> with contracts — the trusted feed an autonomous system depends on. MDM is the foundation, not an afterthought.</p></div>
+      <div class="pov"><div class="pn">POV 3</div><h4>Right tool for the job</h4><p>RPA for deterministic, ML for prediction, GenAI for language, agentic for autonomous decisions. Matching the pattern to the problem is what stops "AI slideware."</p></div>
+      <div class="pov"><div class="pn">POV 4</div><h4>Governance is the platform</h4><p>Responsible-AI, DPDP and guardrails are built into the platform (gateway, registry, eval harness), not bolted on — the only way autonomy scales safely.</p></div>
+      <div class="pov"><div class="pn">POV 5</div><h4>Composable &amp; event-driven</h4><p>API-led connectivity and an event backbone keep the estate real-time and loosely coupled — so use cases plug in without re-wiring the enterprise.</p></div>
     </div>
+
+    <span class="sub-eyebrow">The target reference architecture</span>
+    <h3 class="sub-title">One integrated stack — click a layer</h3>
+    <p class="lead">Seven layers, designed together against the to-be process model. Security, privacy (DPDP) and responsible AI run across all of them.</p>
+    <div class="arch-stack" id="archStack"></div>
+    <div class="layer-detail" id="layerDetail"></div>
+    <p class="illus">Technology options shown are illustrative of the class of tool; the final stack is selected with RCPL against build-buy-partner and TCO criteria (B2, B11).</p>
+
+    <span class="sub-eyebrow">Right tool for the job</span>
+    <h3 class="sub-title">RPA vs GenAI vs Agentic — how we choose</h3>
+    <p class="lead">The wrong pattern is the fastest route to a stalled pilot. We match each use case to a pattern and a target agency level. <b>Click a pattern.</b></p>
+    <div class="pat-grid" id="patGrid"></div>
+    <div class="pat-detail" id="patDetail"></div>
 
     <div class="ai-panel">
       <span class="sub-eyebrow">The AI factory</span>
@@ -544,6 +645,33 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
       <div class="uc-grid" id="ucGrid"></div>
       <p style="text-align:center;color:#7f8ea3;font-size:13px;margin-top:22px">Full 100+ use-case roadmap with value sizing, sequencing, agency level and BU rollout is provided in the annexe.</p>
     </div>
+
+    <span class="sub-eyebrow">Value at stake</span>
+    <h3 class="sub-title">Worked value chains — from capability to outcome</h3>
+    <div class="grid g2" style="margin-top:24px">
+      <div class="card"><div class="ic">◔</div><h3>Demand forecasting → working capital</h3><p><b>+5–10 pts</b> forecast accuracy → <b>10–20%</b> inventory reduction → measurable working-capital release across Beverages first, then all BUs.</p></div>
+      <div class="card"><div class="ic">◧</div><h3>Touchless finance → cost &amp; speed</h3><p><b>60–80%</b> straight-through invoice processing and a <b>30–50%</b> faster close — capacity redeployed from processing to analysis.</p></div>
+      <div class="card"><div class="ic">◨</div><h3>GenAI content &amp; service → throughput</h3><p><b>3–5×</b> content throughput and deflection of routine service queries to agentic resolution, at consistent brand quality.</p></div>
+      <div class="card"><div class="ic">◩</div><h3>Clean-core ERP → agility</h3><p><b>&lt;10%</b> custom code target keeps the core upgrade-safe and cheap to run, so new capability ships without re-platforming.</p></div>
+    </div>
+    <p class="illus">Illustrative FMCG-industry value ranges — each use case is value-sized against RCPL's baseline during design and tracked in the benefits register.</p>
+
+    <details class="scope-fold">
+      <summary>▸ Full RFP scope coverage — Stream 2 (B1–B11)</summary>
+      <div class="scope-grid">
+        <div class="si"><b>B1</b> Digital Strategy &amp; Enterprise Architecture</div>
+        <div class="si"><b>B2</b> Application Landscape Rationalisation — build-buy-replace, sunset</div>
+        <div class="si"><b>B3</b> ERP Modernisation &amp; Process Digitisation — S/4HANA-class</div>
+        <div class="si"><b>B4</b> Data Strategy &amp; Lakehouse — data products, MDM, quality</div>
+        <div class="si"><b>B5</b> Analytics, BI &amp; Control Tower — real-time KPIs</div>
+        <div class="si"><b>B6</b> AI / GenAI / Agentic Strategy &amp; Roadmap — 100+ use cases</div>
+        <div class="si"><b>B7</b> Intelligent Automation Architecture — RPA, IDP, factory</div>
+        <div class="si"><b>B8</b> Integration &amp; API Strategy — backbone, events, real-time</div>
+        <div class="si"><b>B9</b> Cybersecurity, Privacy &amp; AI Governance — DPDP, responsible AI</div>
+        <div class="si"><b>B10</b> Tech Operating Model &amp; Talent — org, sourcing, vendors</div>
+        <div class="si"><b>B11</b> Technology Investment Case — TCO/ROI, wave-aligned</div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -857,6 +985,90 @@ const GATES=[
 ];
 const gd=document.getElementById("gates");
 GATES.forEach(g=>{const el=document.createElement("div");el.className="gcard";el.innerHTML=`<div class="gn">${g.n}</div><h4>Gate ${g.n} — ${g.t}</h4><div class="when">${g.when}</div><p>${g.d}</p>`;gd.appendChild(el);});
+
+/* ===== STREAM 1: 10-TOWER DEEP-DIVE ===== */
+const TOWERS=[
+  {ic:"₹",n:"Finance &amp; Accounting",w:"Lighthouse→Transform",scope:"Record-to-Report, Procure-to-Pay ops, Order-to-Cash, FP&A support, treasury &amp; tax ops.",fte:"~28%",auto:"~55%",split:"80 / 20",kpi:"Close-cycle days · DSO · invoice first-time-right · cost per invoice"},
+  {ic:"⛭",n:"Human Resources",w:"Lighthouse",scope:"Hire-to-retire, payroll, benefits admin, HR helpdesk, talent operations.",fte:"~12%",auto:"~50%",split:"75 / 25",kpi:"Payroll accuracy · time-to-hire · query resolution TAT"},
+  {ic:"◫",n:"Procurement",w:"Transform",scope:"Source-to-contract, procure-to-pay operations, supplier management, catalogue.",fte:"~9%",auto:"~45%",split:"70 / 30",kpi:"PO cycle time · savings realised · contract compliance"},
+  {ic:"◷",n:"Supply Chain Planning",w:"Transform (AI-anchored)",scope:"Demand &amp; supply planning support, S&amp;OP support, inventory management.",fte:"~8%",auto:"~40%",split:"60 / 40",kpi:"Forecast accuracy · inventory turns · OTIF"},
+  {ic:"⇄",n:"Transportation &amp; Logistics",w:"Transform",scope:"Freight operations, carrier management, track-and-trace, freight audit.",fte:"~7%",auto:"~50%",split:"70 / 30",kpi:"Freight cost/ton · on-time delivery · freight-audit recovery"},
+  {ic:"▤",n:"Order Management",w:"Lighthouse",scope:"Order entry &amp; ops, fulfilment coordination, returns, order-to-cash front end.",fte:"~9%",auto:"~55%",split:"80 / 20",kpi:"Order accuracy · order cycle time · perfect-order rate"},
+  {ic:"◎",n:"Pricing",w:"Transform",scope:"Price-setting support, trade-promo ops, claims &amp; deductions, price master.",fte:"~6%",auto:"~50%",split:"65 / 35",kpi:"Claim resolution TAT · pricing error rate · promo-ROI tracking"},
+  {ic:"◧",n:"Master Data Management",w:"Lighthouse (foundational)",scope:"Customer / vendor / material / pricing master, data quality, governance ops.",fte:"~5%",auto:"~60%",split:"85 / 15",kpi:"Data accuracy · first-time-right · request TAT"},
+  {ic:"◪",n:"Analytics",w:"Transform",scope:"BI operations, report factory, self-service enablement, control-tower ops.",fte:"~6%",auto:"~45%",split:"70 / 30",kpi:"Report SLA · self-service adoption · insight cycle time"},
+  {ic:"⌗",n:"IT Service Desk",w:"Lighthouse",scope:"L1/L2 support, access management, incident &amp; request, application support.",fte:"~10%",auto:"~55%",split:"85 / 15",kpi:"First-contact resolution · MTTR · CSAT"},
+];
+const towerGrid=document.getElementById("towerGrid"),towerDetail=document.getElementById("towerDetail");
+TOWERS.forEach((t,i)=>{const el=document.createElement("div");el.className="tower"+(i===0?" active":"");el.dataset.i=i;
+  el.innerHTML=`<div class="ti">${t.ic}</div><div class="tn">${t.n}</div><div class="tw">${t.w.split(/[ (→]/)[0]}</div>`;
+  el.addEventListener("click",()=>{document.querySelectorAll(".tower").forEach(x=>x.classList.remove("active"));el.classList.add("active");renderTower(i);});towerGrid.appendChild(el);});
+function renderTower(i){const t=TOWERS[i];
+  towerDetail.innerHTML=`<h3>${t.n}</h3><div class="td-scope">${t.scope}</div>
+    <div class="td-metrics">
+      <div class="tm"><b>${t.fte}</b><small>share of SSC FTE</small></div>
+      <div class="tm"><b>${t.auto}</b><small>automation potential</small></div>
+      <div class="tm"><b>${t.split}</b><small>SSC / retained split</small></div>
+      <div class="tm"><b>${t.w}</b><small>transition wave</small></div>
+    </div>
+    <div class="td-kpi"><b>Run to:</b> ${t.kpi}</div>`;}
+renderTower(0);
+
+/* ===== STREAM 2: REFERENCE ARCHITECTURE ===== */
+const LAYERS=[
+  {ic:"◱",t:"Experience &amp; Consumption",x:"Consume",s:"Executive control tower, self-service BI, conversational assistants",
+   d:"Where people and processes meet the intelligence — a real-time executive control tower, self-service BI, and conversational/assistant interfaces embedded directly into SSC and BU workflows (not standalone dashboards).",
+   o:["Executive control tower","Self-service BI","Conversational assistants","Embedded workflow insights"]},
+  {ic:"⬡",t:"AI &amp; Agent Platform",x:"Decide",s:"LLM gateway, agent orchestration, model registry, eval &amp; guardrails",
+   d:"The decision engine. A governed LLM gateway, agent orchestration, feature store, model registry, prompt/experiment management, an evaluation harness and a guardrail/policy layer — the MLOps/LLMOps backbone that lets 100+ use cases run safely.",
+   o:["LLM gateway","Agent orchestration","Model registry + feature store","Evaluation harness","Guardrail / policy layer"]},
+  {ic:"⚙",t:"Automation Fabric",x:"Act",s:"RPA, IDP, workflow/BPM, conversational bots",
+   d:"The hands. An automation factory combining RPA for deterministic work, IDP for documents, workflow/BPM for orchestration and bots for interaction — integrated straight into SSC processes so automation and transition move together.",
+   o:["RPA","Intelligent Document Processing","Workflow / BPM","Conversational bots"]},
+  {ic:"▤",t:"Data Lakehouse",x:"Trust",s:"Medallion, data products, MDM, governance &amp; quality",
+   d:"The trusted memory. A Databricks-class medallion lakehouse (bronze/silver/gold) serving governed data products with contracts, underpinned by MDM, a data catalogue and a quality framework — DPDP-compliant by design.",
+   o:["Medallion (bronze/silver/gold)","Data products + contracts","Master Data Management","Catalogue + quality"]},
+  {ic:"⇄",t:"Integration &amp; Events",x:"Connect",s:"API-led connectivity, event streaming, real-time movement",
+   d:"The nervous system. API-led connectivity, an event-streaming backbone and real-time data movement with a governed API catalogue — keeping the estate loosely coupled so use cases plug in without re-wiring.",
+   o:["API-led connectivity","Event streaming","API catalogue + governance","Real-time data movement"]},
+  {ic:"▣",t:"Core Systems — Clean-Core ERP",x:"Transact",s:"S/4HANA-class ERP + best-of-breed apps",
+   d:"The system of record. An S/4HANA-class ERP kept fit-to-standard (clean core), with custom logic in side-by-side extensions and surrounding best-of-breed apps — so upgrades stay cheap and the core stays fast.",
+   o:["S/4HANA-class ERP","Fit-to-standard core","Side-by-side extensions","Best-of-breed surround"]},
+  {ic:"⛨",t:"Security, Privacy &amp; Responsible AI",x:"Across all layers",s:"Identity, DPDP, model risk, audit trail",
+   d:"The envelope that spans every layer. Identity &amp; access, data protection and DPDP Act 2023 compliance, model-risk tiering, bias testing and a full audit trail — the four autonomy guardrails live here.",
+   o:["Identity &amp; access","DPDP Act 2023 compliance","Model-risk &amp; bias controls","Audit trail + guardrails"]},
+];
+const archStack=document.getElementById("archStack"),layerDetail=document.getElementById("layerDetail");
+LAYERS.forEach((l,i)=>{const el=document.createElement("div");el.className="layer"+(i===0?" active":"");el.dataset.i=i;
+  el.innerHTML=`<div class="li">${l.ic}</div><div><div class="lt">${l.t}</div><div class="ls">${l.s}</div></div><div class="lx">${l.x}</div>`;
+  el.addEventListener("click",()=>{document.querySelectorAll(".layer").forEach(x=>x.classList.remove("active"));el.classList.add("active");renderLayer(i);});archStack.appendChild(el);});
+function renderLayer(i){const l=LAYERS[i];
+  layerDetail.innerHTML=`<h4>${l.ic} ${l.t}</h4><p>${l.d}</p><div class="opts">${l.o.map(o=>`<span>${o}</span>`).join("")}</div>`;}
+renderLayer(0);
+
+/* ===== STREAM 2: AI PATTERN SELECTOR ===== */
+const PATTERNS=[
+  {ic:"⚙",n:"RPA / Deterministic",a:"Agency L2–L3",
+   d:"Rules-based automation of structured, stable, high-volume tasks. No judgement — just reliable execution at scale.",
+   when:"Structured inputs, clear rules, stable process",ex:"Invoice posting, GRN capture, master-data updates",guard:"Exception routing to a human queue"},
+  {ic:"◷",n:"ML / IDP",a:"Agency L3",
+   d:"Machine learning to predict, classify or extract from semi-structured data — where patterns exist but rules can't capture them.",
+   when:"Predict / classify / extract from data",ex:"Demand forecasting, invoice extraction, predictive maintenance",guard:"Confidence thresholds + human review of low-confidence cases"},
+  {ic:"✦",n:"GenAI",a:"Agency L3–L4",
+   d:"Generative AI to create, summarise or converse over unstructured language — grounded in RCPL's own governed data.",
+   when:"Generate / summarise / reason over language",ex:"Content studio, variance narratives, policy assistant",guard:"Grounding + human sign-off for external/consequential output"},
+  {ic:"⬡",n:"Agentic AI",a:"Agency L4–L5",
+   d:"Autonomous, multi-step action within a bounded scope — the system initiates and acts, not just recommends. The System-Governed destination.",
+   when:"Multi-step autonomous decisions",ex:"Agentic replenishment, price monitoring, autonomous close",guard:"All four guardrails: reversibility, alerts, independent checks, named override"},
+];
+const patGrid=document.getElementById("patGrid"),patDetail=document.getElementById("patDetail");
+PATTERNS.forEach((p,i)=>{const el=document.createElement("div");el.className="pat"+(i===0?" active":"");el.dataset.i=i;
+  el.innerHTML=`<div class="pi2">${p.ic}</div><h4>${p.n}</h4><div class="pa">${p.a}</div>`;
+  el.addEventListener("click",()=>{document.querySelectorAll(".pat").forEach(x=>x.classList.remove("active"));el.classList.add("active");renderPat(i);});patGrid.appendChild(el);});
+function renderPat(i){const p=PATTERNS[i];
+  patDetail.innerHTML=`<h4>${p.ic} ${p.n} <span style="color:var(--gold);font-size:12px;font-weight:700">· ${p.a}</span></h4><p>${p.d}</p>
+    <div class="row"><div><b>When to use</b>${p.when}</div><div><b>RCPL examples</b>${p.ex}</div><div><b>Guardrail</b>${p.guard}</div></div>`;}
+renderPat(0);
 
 /* ===== SCROLL / NAV / REVEAL ===== */
 const bar=document.getElementById("scrollBar"),navA=document.querySelectorAll(".nav-links a"),secs=[...document.querySelectorAll("section")];
