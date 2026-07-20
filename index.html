@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Volume 1 — Technical Proposal | RCPL AI-Enabled Enterprise Transformation</title>
+<title>EY · AI-Enabled SSC Transformation — RCPL | Volume 1</title>
 <style>
 :root{
   --navy:#0f1f38;--navy-2:#152741;--navy-3:#24406a;--navy-4:#33578a;
@@ -337,6 +337,48 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
 @media(max-width:960px){.pov-grid,.tower-grid,.pat-grid{grid-template-columns:repeat(2,1fr)}.td-metrics,.pat-detail .row,.scope-grid{grid-template-columns:1fr}.disp span{min-width:100px}}
 @media(max-width:640px){.pov-grid,.tower-grid,.pat-grid{grid-template-columns:1fr}}
 
+/* EY WORDMARK (brand placeholder — swap for official asset) */
+.ey-logo{display:inline-grid;place-items:center;background:#2e2e38;color:#ffe600;font-weight:900;font-style:italic;width:40px;height:32px;border-radius:5px;letter-spacing:.5px;font-size:17px;flex:none}
+.ey-logo.big{width:58px;height:46px;font-size:24px;border-radius:7px}
+.hero-brand{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.hero-brand .hb-txt{color:#fff;font-weight:700;font-size:15px;line-height:1.2}
+.hero-brand .hb-txt small{display:block;color:var(--gold-2);font-weight:500;font-size:11.5px;letter-spacing:1px;text-transform:uppercase}
+
+/* TIMELINE — legend + gantt + sync + deps */
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:22px}
+.legend span{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:#c1cddd;font-weight:600}
+.legend i{width:15px;height:15px;border-radius:4px;display:inline-block}
+.ph0{background:#3a6ea8}.ph1{background:#3aa6c9}.ph2{background:#c79a4b}.ph3{background:#2f8f6a}
+.g-bar.ph2,.g-bar.ph3,.legend i.ph2{color:#1b2740}
+.gantt{overflow-x:auto;margin-top:22px;padding-bottom:8px}
+.gantt-inner{min-width:940px}
+.g-head{display:grid;grid-template-columns:172px repeat(15,1fr);align-items:end;margin-bottom:6px}
+.g-head .gh-sp{font-size:11px;color:#93a3b8;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.g-head .gh-m{text-align:center;font-size:10.5px;color:#93a3b8;font-weight:700;border-left:1px dashed rgba(255,255,255,.14);padding:2px 0}
+.g-lane-title{color:#fff;font-weight:800;font-size:14.5px;margin:18px 0 8px;display:flex;align-items:center;gap:10px}
+.g-lane-title .lt-tag{font-size:10.5px;font-weight:700;background:rgba(255,255,255,.1);color:var(--gold-2);padding:2px 9px;border-radius:100px}
+.g-row{display:grid;grid-template-columns:172px repeat(15,1fr);align-items:center;min-height:42px;position:relative}
+.g-row .g-rl{font-size:11.5px;color:#aab8cc;padding-right:10px;display:flex;align-items:center;gap:7px;line-height:1.15}
+.g-row .g-rl i{width:9px;height:9px;border-radius:3px;flex:none}
+.g-bar{height:32px;border-radius:8px;display:flex;align-items:center;padding:0 12px;color:#fff;font-size:11.5px;font-weight:600;cursor:pointer;transition:.2s;box-shadow:0 5px 16px rgba(0,0,0,.28);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;border:1px solid rgba(255,255,255,.18)}
+.g-bar:hover{transform:translateY(-2px);filter:brightness(1.08);z-index:3}
+.g-bar.sel{outline:2px solid #fff;outline-offset:1px}
+.g-syncrail{display:grid;grid-template-columns:172px repeat(15,1fr);position:relative;height:38px;margin:4px 0}
+.sync-flag{align-self:center;justify-self:center;background:var(--gold);color:var(--navy);font-size:10px;font-weight:800;border-radius:100px;padding:4px 10px;cursor:pointer;white-space:nowrap;position:relative;z-index:2;transition:.2s}
+.sync-flag:hover{background:var(--gold-2);transform:scale(1.05)}
+.sync-flag::before,.sync-flag::after{content:"";position:absolute;left:50%;width:0;border-left:2px dashed rgba(199,154,75,.55);height:24px}
+.sync-flag::before{bottom:100%}.sync-flag::after{top:100%}
+.gantt-detail{margin-top:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:24px;min-height:130px}
+.gantt-detail h4{color:#fff;font-size:19px;margin-bottom:2px}
+.gantt-detail .dp-meta{color:var(--gold-2);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.gantt-detail ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.gantt-detail li{font-size:13.5px;color:#c1cddd;padding-left:16px;position:relative}
+.gantt-detail li::before{content:"▸";position:absolute;left:0;color:var(--gold)}
+.deps{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+.dep{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-left:3px solid var(--gold);border-radius:10px;padding:13px 15px;font-size:13px;color:#c1cddd}
+.dep b{color:var(--gold-2);display:block;margin-bottom:3px}
+@media(max-width:760px){.gantt-detail ul,.deps{grid-template-columns:1fr}}
+
 /* FOOT */
 .foot{background:var(--ink);color:#c7d2e2;padding:60px 0 40px}
 .foot h3{color:#fff;font-size:26px;margin-bottom:10px}
@@ -365,7 +407,7 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <div class="brand"><span class="dot"></span><div>NOVARETH Advisory<small>Volume 1 · RFP TR/2026/002</small></div></div>
+    <div class="brand"><span class="ey-logo">EY</span><div>EY<small>Volume 1 · RFP TR/2026/002</small></div></div>
     <button class="nav-toggle" aria-label="menu">☰</button>
     <div class="nav-links" id="navLinks">
       <a href="#s1">1 · Summary</a>
@@ -383,9 +425,10 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
 <!-- HERO -->
 <header class="hero">
   <div class="wrap">
-    <span class="badge">◆ Volume 1 — Technical Proposal</span>
-    <h1>AI-Enabled <span>Enterprise Transformation</span></h1>
-    <p class="sub">A single integrated partner to digitise, centralise and embed 100+ AI use cases across RCPL — the journey to a <b style="color:var(--gold-2)">System-Governed enterprise</b>, from diagnostic to steady-state in 12–15 months.</p>
+    <div class="hero-brand"><span class="ey-logo big">EY</span><div class="hb-txt">EY<small>Technical Proposal · Volume 1</small></div></div>
+    <span class="badge">◆ Prepared for RCPL · RFP TR/2026/002</span>
+    <h1>AI-Enabled <span>SSC Transformation</span></h1>
+    <p class="sub">EY as a single integrated partner to structure, digitise and modernise RCPL's shared services and tech stack, and embed 100+ AI use cases — the journey to a <b style="color:var(--gold-2)">System-Governed enterprise</b>, from diagnostic to steady-state in 12–15 months.</p>
     <div class="hero-meta">
       <div class="chip"><b>12–15</b><small>Months to steady state</small></div>
       <div class="chip"><b>100+</b><small>AI / GenAI / agentic use cases</small></div>
@@ -393,13 +436,13 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
       <div class="chip"><b>L5</b><small>Target: governed autonomy</small></div>
     </div>
     <div class="toc">
-      <a href="#s1"><div class="s">§1</div><h4>Executive Summary</h4><small>max 3 pages</small></a>
-      <a href="#s2"><div class="s">§2</div><h4>Integrated Delivery Plan</h4><small>max 10 pages</small></a>
-      <a href="#s3"><div class="s">§3</div><h4>Stream 1 Approach</h4><small>max 8 pages</small></a>
-      <a href="#s4"><div class="s">§4</div><h4>Stream 2 Approach</h4><small>max 10 pages</small></a>
-      <a href="#s5"><div class="s">§5</div><h4>Team Composition</h4><small>max 10 pages</small></a>
-      <a href="#s6"><div class="s">§6</div><h4>Case Studies</h4><small>minimum 3</small></a>
-      <a href="#s7"><div class="s">§7</div><h4>Capability Transfer</h4><small>max 3 pages</small></a>
+      <a href="#s1"><div class="s">§1</div><h4>Executive Summary</h4><small>Why EY</small></a>
+      <a href="#s2"><div class="s">§2</div><h4>Integrated Delivery Plan</h4><small>Timeline &amp; governance</small></a>
+      <a href="#s3"><div class="s">§3</div><h4>Stream 1 Approach</h4><small>SSC &amp; process</small></a>
+      <a href="#s4"><div class="s">§4</div><h4>Stream 2 Approach</h4><small>Digital, data &amp; AI</small></a>
+      <a href="#s5"><div class="s">§5</div><h4>Team Composition</h4><small>Named leaders</small></a>
+      <a href="#s6"><div class="s">§6</div><h4>Case Studies</h4><small>Proof points</small></a>
+      <a href="#s7"><div class="s">§7</div><h4>Capability Transfer</h4><small>Exit readiness</small></a>
       <a href="#appendix"><div class="s">✦</div><h4>Appendix</h4><small>Evaluation map</small></a>
     </div>
   </div>
@@ -417,7 +460,7 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
 <!-- 1. EXECUTIVE SUMMARY -->
 <section id="s1">
   <div class="wrap reveal">
-    <span class="vol-tag">Volume 1 · §1 · max 3 pages</span>
+    <span class="vol-tag">Volume 1 · §1</span>
     <span class="eyebrow">Executive Summary</span>
     <h2 class="title">Integrated capability · 12–15 month confidence · FMCG India</h2>
     <p class="lead">RCPL needs a fully operational AI-enabled enterprise — not a strategy deck. We bring deep, pre-vetted capability across <b>process/SSC</b> and <b>digital/AI</b> under a single PMO, with named full-time teams on-site from Day&nbsp;1 and overlapping waves that compress the timeline without compromising design quality.</p>
@@ -446,7 +489,7 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
 <!-- 2. INTEGRATED DELIVERY PLAN -->
 <section id="s2" class="dark">
   <div class="wrap reveal">
-    <span class="vol-tag">Volume 1 · §2 · max 10 pages</span>
+    <span class="vol-tag">Volume 1 · §2</span>
     <span class="eyebrow">Integrated Delivery Plan</span>
     <h2 class="title">Timeline, waves, dependencies, risk &amp; governance</h2>
     <p class="lead">Our delivery is organised as a disciplined climb toward the target operating model. This section covers the operating-model target, the wave timeline, the dependencies that sequence it, mobilisation, risk mitigation and governance.</p>
@@ -458,13 +501,26 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
     <div class="arch-grid" id="archGrid"></div>
     <div class="arch-detail" id="archDetail"></div>
 
-    <span class="sub-eyebrow">Timeline &amp; waves</span>
-    <h3 class="sub-title">Four overlapping phases — climbing the agency ladder</h3>
-    <p class="lead">Overlapping waves mean build begins while design is still being finalised — and each phase lifts suitable processes one step up the agency ladder, from human-initiated to governed autonomy. <b>Click a phase; click a level.</b></p>
+    <span class="sub-eyebrow">The autonomy ladder</span>
+    <h3 class="sub-title">Not starting from zero — structuring what RCPL already has</h3>
+    <p class="lead">RCPL already runs on capable systems; today they are <b>fragmented and manual-heavy</b>, not absent. That is exactly why we invest so heavily up front (M0–6): structuring the SSC, modernising and integrating the tech stack, and laying the data foundation — <i>together</i> with the first AI use cases. Each phase then lifts suitable processes one rung up the ladder. <b>Click a level.</b></p>
     <div class="ladder" id="ladder"></div>
     <div class="ladder-detail" id="ladderDetail"></div>
-    <div class="wave-track" id="waveTrack"></div>
-    <div class="wave-detail show" id="waveDetail"></div>
+
+    <span class="sub-eyebrow">The delivery timeline</span>
+    <h3 class="sub-title">Stream 1 &amp; Stream 2 across the four phases — click any bar</h3>
+    <p class="lead">A swimlane view of both streams, colour-coded by phase, showing where they run in parallel, where they must sync, and the dependencies between them. Click a bar for its detailed activities; click a ◆ sync point to see what has to line up.</p>
+    <div class="legend">
+      <span><i class="ph0"></i>Foundation &amp; Design</span>
+      <span><i class="ph1"></i>Lighthouse + Build Wave 1</span>
+      <span><i class="ph2"></i>Transform + Scale Wave 2</span>
+      <span><i class="ph3"></i>Complete + Stabilise</span>
+      <span><i style="background:var(--gold)"></i>◆ Cross-stream sync point</span>
+    </div>
+    <div class="gantt"><div class="gantt-inner" id="ganttInner"></div></div>
+    <div class="gantt-detail" id="ganttDetail"></div>
+    <h3 class="sub-title" style="margin-top:34px;font-size:20px">Dependencies between the streams</h3>
+    <div class="deps" id="deps"></div>
 
     <span class="sub-eyebrow">Dependencies &amp; readiness</span>
     <h3 class="sub-title">What must be built before autonomy scales</h3>
@@ -516,7 +572,7 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
 <!-- 3. STREAM 1 APPROACH -->
 <section id="s3">
   <div class="wrap reveal">
-    <span class="vol-tag">Volume 1 · §3 · max 8 pages</span>
+    <span class="vol-tag">Volume 1 · §3</span>
     <span class="eyebrow">Stream 1 Approach</span>
     <h2 class="title">SSC design, process re-engineering, org design &amp; change</h2>
     <p class="lead">Executed as a single integrated engagement with wave-based process transition. We design the future operating model, re-engineer ~85 processes to L5, stand up a 10-tower SSC and manage transition — with 100% clarity on SSC vs Retained vs Corporate accountability and SOX-equivalent audit readiness.</p>
@@ -593,7 +649,7 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
 <!-- 4. STREAM 2 APPROACH -->
 <section id="s4" class="alt">
   <div class="wrap reveal">
-    <span class="vol-tag">Volume 1 · §4 · max 10 pages</span>
+    <span class="vol-tag">Volume 1 · §4</span>
     <span class="eyebrow">Stream 2 Approach</span>
     <h2 class="title">AI/GenAI roadmap &amp; factory, data lakehouse, ERP, automation</h2>
     <p class="lead">Part B Phase 1 (Digital Design, M0–6) is mandatory and runs in lockstep with Stream 1's Foundation — producing the enterprise architecture, data/AI platform design, ERP target state and the 100+ use-case roadmap, all aligned to the to-be process architecture. Phase 2 execution program management is optional.</p>
@@ -678,7 +734,7 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
 <!-- 5. TEAM COMPOSITION -->
 <section id="s5">
   <div class="wrap reveal">
-    <span class="vol-tag">Volume 1 · §5 · max 10 pages</span>
+    <span class="vol-tag">Volume 1 · §5</span>
     <span class="eyebrow">Team Composition</span>
     <h2 class="title">Named CVs — Partner, Engagement Director, Stream Leads</h2>
     <p class="lead">Full-time, pre-vetted pods co-located with RCPL's named internal team, on-site from Day 1. Partner and Engagement Director involved throughout; named CVs for every lead provided in this section.</p>
@@ -699,7 +755,7 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
 <!-- 6. CASE STUDIES -->
 <section id="s6" class="alt">
   <div class="wrap reveal">
-    <span class="vol-tag">Volume 1 · §6 · minimum 3</span>
+    <span class="vol-tag">Volume 1 · §6</span>
     <span class="eyebrow">Case Studies</span>
     <h2 class="title">Recent Indian FMCG · integrated · under 18 months</h2>
     <p class="lead">Three representative engagements meeting all three tests — recent Indian FMCG, integrated process + digital/AI, delivered in under 18 months. Full references provided in Volume 1.</p>
@@ -714,7 +770,7 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
 <!-- 7. CAPABILITY TRANSFER PLAN -->
 <section id="s7" class="dark">
   <div class="wrap reveal">
-    <span class="vol-tag">Volume 1 · §7 · max 3 pages</span>
+    <span class="vol-tag">Volume 1 · §7</span>
     <span class="eyebrow">Capability Transfer Plan</span>
     <h2 class="title">KT milestones · mixed-team model · exit readiness</h2>
     <p class="lead">Exit-readiness is engineered from Day 1 through a mixed-team model and four KT milestone gates — consultant tapers to advisory-only post-M15, leaving RCPL as the Accountable Architect of its own system.</p>
@@ -771,7 +827,7 @@ h3.sub-title{font-size:clamp(21px,3vw,30px);color:var(--navy);font-weight:800;le
       <p style="max-width:560px">This interactive Volume 1 accompanies the formatted submission and Volume 2 (Commercial). We welcome an orals session to walk RCPL through the delivery plan and AI factory live.</p>
     </div>
     <div class="contact">
-      <div><b>Submitted by</b> NOVARETH Advisory <span style="color:#6b7688">(placeholder — replace with your firm)</span></div>
+      <div><b>Submitted by</b> EY <span style="color:#6b7688">(EY wordmark is a styled text placeholder — swap for the official brand asset)</span></div>
       <div><b>In response to</b> RFP TR/2026/002</div>
       <div><b>Client</b> Reliance Consumer Products Limited</div>
       <div><b>Volume</b> 1 — Technical Proposal (interactive companion)</div>
@@ -828,11 +884,11 @@ selArch(3);
 
 /* ===== AGENCY LADDER ===== */
 const AGENCY=[
-  {lb:"Human Initiation",wv:"Baseline (today)",d:"People initiate and own all work. Manual, report-driven. Where most RCPL processes sit today."},
-  {lb:"Structured Human Initiation",wv:"Lighthouse (M2–M6)",d:"Work is still human-initiated but standardised and documented. Lift-and-shift simple, high-volume processes to the SSC and lock in the discipline autonomy later requires."},
-  {lb:"System-Assisted Initiation",wv:"Build Wave 1 (M2–M6)",d:"Systems surface insights and draft actions; humans decide. First 15–20 AI use cases and copilots go live in Beverages — the safe entry point for system initiation."},
-  {lb:"Supervised System Initiation",wv:"Transform Wave 2 (M5–M12)",d:"Systems initiate and act within a bounded scope; humans supervise by exception. Agentic AI embedded into redesigned processes with human-in-the-loop and full guardrails."},
-  {lb:"Governed Autonomy",wv:"Complete + Stabilise (M9–M15)",d:"For suitable low-risk, high-volume decisions the system monitors and acts 24/7 without prompting, under complete governance. The full realisation of System-Governed."},
+  {lb:"Fragmented (as-is)",wv:"Baseline — today",d:"RCPL already runs on capable systems, but they are siloed and process is manual-heavy — work is human-driven across disconnected tools. This is the starting point we structure, not a blank slate."},
+  {lb:"Structured & modernised",wv:"Foundation + Lighthouse (M0–6)",d:"The heavy early lift: SSC designed, processes standardised, the tech stack modernised and integrated, and the data foundation laid — on a clean core. This is why Foundation is front-loaded; it is what makes everything above it possible."},
+  {lb:"System-assisted",wv:"Build Wave 1 (M2–6)",d:"On the modernised foundation, systems surface insights and draft actions while humans decide. The first 15–20 AI use cases and copilots go live in Beverages."},
+  {lb:"Supervised autonomy",wv:"Transform Wave 2 (M5–12)",d:"Systems initiate and act within a bounded scope; humans supervise by exception. Agentic AI embedded into redesigned processes with human-in-the-loop and full guardrails."},
+  {lb:"Governed autonomy",wv:"Complete + Stabilise (M9–15)",d:"For suitable low-risk, high-volume decisions the system monitors and acts 24/7 without prompting, under complete governance. The full realisation of System-Governed."},
 ];
 const ladder=document.getElementById("ladder"),ladderDetail=document.getElementById("ladderDetail");
 AGENCY.forEach((a,i)=>{const el=document.createElement("div");el.className="rung"+(i===0?" active":"");el.dataset.i=i;
@@ -868,32 +924,50 @@ LINK_SRC.forEach((s)=>{const el=document.createElement("div");el.className="link
   el.addEventListener("mouseleave",()=>document.querySelectorAll("#dstCol .link-item").forEach(d=>d.classList.remove("hot","dim")));
   srcCol.appendChild(el);});
 
-/* ===== DELIVERY WAVES ===== */
-const WAVES=[
-  {m:"M0–M3",agy:"Agency L1 · design",t:"Foundation & Design",short:"TOM · SSC blueprint · L5 for all · architecture · readiness baselined",
-   a:["Diagnostic across 5 BUs","TOM & SSC blueprint (10 towers)","To-be L5 for ALL processes","Retained org; SOP/RACI/KPI"],
-   b:["Enterprise/data/AI architecture","ERP target state","App rationalisation","100+ use-case roadmap"],
-   g:["PMO + board cadence live","Design Authority","Six readiness dimensions baselined"]},
-  {m:"M2–M6",agy:"Agency L2 → L3",t:"Lighthouse + Build Wave 1",short:"SSC live · 10–20 processes · first 15–20 AI in prod",
-   a:["SSC infrastructure live","10–20 simple processes transitioned (L2)","Service management framework"],
-   b:["Data lake + AI platform stood up","First 15–20 AI use cases in prod (Beverages, L3)","ERP foundation recommended","Self-service BI"],
-   g:["Wave-1 cutover governance","KT gate 1 (shadow)","Guardrails established for L3"]},
-  {m:"M5–M12",agy:"Agency L4 · supervised",t:"Transform + Scale Wave 2",short:"Redesigned processes to SSC · agentic AI · ERP core live",
-   a:["Priority redesigned processes to SSC","Automation embedded","Scale across Beverages + 2–3 BUs","Dashboards live"],
-   b:["Agentic AI to 50+ in prod (supervised, L4)","ERP core modules live","Executive control tower","RPA/IDP factory"],
-   g:["Wave-2 transition","YoY savings tracking","KT gate 2 (reverse-shadow)"]},
-  {m:"M9–M15",agy:"Agency L5 · governed autonomy",t:"Complete + Stabilise",short:"All BUs · 100+ AI in prod · governed autonomy · steady-state",
-   a:["Remaining BUs transitioned","SSC at full scope","100% SOP/RACI/KPI","Steady-state ops"],
-   b:["100+ AI use cases in prod","Governed autonomy for low-risk, high-volume decisions (L5)","Automated KPI + exception mgmt","ERP integrated"],
-   g:["Resources hired/trained/optimised","KT gates 3–4 (RCPL-led → independent)","Consultant → advisory-only"]},
+/* ===== DELIVERY TIMELINE (GANTT) ===== */
+const PH=[{n:"Foundation & Design",c:"ph0"},{n:"Lighthouse + Build Wave 1",c:"ph1"},{n:"Transform + Scale Wave 2",c:"ph2"},{n:"Complete + Stabilise",c:"ph3"}];
+const GANTT={
+  s1:{title:"Stream 1 — Process, Org, SSC & Change",tag:"Process / SSC",bars:[
+    {ph:0,s:0,e:3,sum:"Diagnose · TOM · SSC blueprint · L5 designs",act:["Diagnostic across all 5 BUs","Target operating model & decision rights","SSC blueprint across 10 towers","To-be L5 designs for all processes","Retained org design; SOP / RACI / KPI","FTE sizing & location strategy"]},
+    {ph:1,s:2,e:6,sum:"SSC live · lift 10–20 processes · service mgmt",act:["SSC infrastructure live","Lift-and-shift 10–20 simple, high-volume processes","Service management framework & SLAs","Change network & training academy launched","Hypercare on Wave-1 cutovers"]},
+    {ph:2,s:5,e:12,sum:"Transform waves · automation embedded · scale 2–3 BUs",act:["Redesigned processes transitioned with automation","Scale across Beverages + 2–3 BUs","Performance dashboards live","Wave-2 cutovers & stabilisation","YoY savings tracking"]},
+    {ph:3,s:9,e:15,sum:"Remaining BUs · full scope · steady state",act:["Remaining BUs transitioned","SSC at full scope, all 10 towers","100% SOPs / RACI / KPIs documented","Steady-state operations & continuous improvement","Capability fully transferred to RCPL"]},
+  ]},
+  s2:{title:"Stream 2 — Digital, Data & AI",tag:"Digital / AI",bars:[
+    {ph:0,s:0,e:6,sum:"Digital Design (Phase 1) · EA · ERP target · platform design",act:["Enterprise architecture & app rationalisation","ERP target state (S/4HANA-class), clean core","Data lakehouse & AI platform design","100+ AI use-case roadmap, value-sized","Integration & API strategy","Technology investment case"]},
+    {ph:1,s:2,e:6,sum:"Lakehouse + AI platform live · first 15–20 AI · ERP foundation",act:["Data lakehouse & AI platform stood up","Integration backbone live","First 15–20 AI use cases in production (Beverages)","Self-service BI foundation","ERP foundation recommended"]},
+    {ph:2,s:5,e:12,sum:"AI to 50+ · ERP core · control tower · automation factory",act:["AI factory scaled to 50+ in production (supervised)","ERP core modules live","Executive control tower with real-time KPIs","RPA / IDP automation factory","Responsible-AI guardrails at scale"]},
+    {ph:3,s:9,e:15,sum:"100+ AI · governed autonomy · KPI/exception automation",act:["100+ AI use cases in production","Governed autonomy for suitable decisions","Automated KPI & exception management","ERP modernised & fully integrated","Data platform live to the new operating model"]},
+  ]}
+};
+const SYNCS=[
+  {m:3,t:"Design sign-off",d:"Stream 1's to-be L5 process designs are the input to Stream 2's enterprise architecture, ERP target state and data model. The Design Authority signs off both together — Stream 2 does not finalise architecture ahead of this."},
+  {m:6,t:"Foundation complete",d:"SSC infrastructure (S1) plus the data/AI platform and ERP foundation (S2) go live together. The first AI use cases (S2) embed into the processes just transitioned (S1). Gate into Transform Wave 2."},
+  {m:12,t:"Scale gate",d:"Redesigned processes (S1) and their automation/AI (S2) move in the same wave, in the same fusion pods. The control tower (S2) now consumes live SSC KPIs (S1)."},
+  {m:15,t:"Steady state & handover",d:"Both streams reach steady state and hand over. RCPL owns the SSC and the AI factory as Accountable Architect; EY moves to advisory-only."},
 ];
-const wt=document.getElementById("waveTrack"),wd=document.getElementById("waveDetail");
-WAVES.forEach((w,i)=>{const el=document.createElement("div");el.className="wave"+(i===0?" active":"");el.dataset.i=i;
-  el.innerHTML=`<div class="m">${w.m}</div><span class="agy">${w.agy}</span><h4>${w.t}</h4><p>${w.short}</p><span class="n">0${i+1}</span>`;
-  el.addEventListener("click",()=>{document.querySelectorAll(".wave").forEach(x=>x.classList.remove("active"));el.classList.add("active");renderWave(i);});wt.appendChild(el);});
-function renderWave(i){const w=WAVES[i];const col=(h,a)=>`<div><h5>${h}</h5><ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul></div>`;
-  wd.innerHTML=`<span class="kd">Phase ${i+1} · ${w.m} · ${w.agy}</span><h3>${w.t}</h3><div class="wave-cols">${col("Stream 1 — Process/SSC",w.a)}${col("Stream 2 — Digital/AI",w.b)}${col("Governance / Transfer",w.g)}</div>`;}
-renderWave(0);
+const DEPS=[
+  {t:"Process → Architecture",d:"S1 to-be designs (A3) are a hard input to S2 ERP target state (B3) & data products (B4). Synced at M3."},
+  {t:"Platform → SSC",d:"S2 data platform (B4) & integration (B8) enable S1's analytics tower and a system-enabled SSC. Synced at M6."},
+  {t:"Fusion delivery",d:"S1 process transition and S2 automation/AI embedding move in the same wave, in the same fusion pods — never sequentially."},
+  {t:"Readiness → agency",d:"S2 use cases only climb the agency ladder once S1 has standardised the underlying process (readiness-before-autonomy)."},
+];
+const gi=document.getElementById("ganttInner"),gd2=document.getElementById("ganttDetail");
+function laneHTML(key){const L=GANTT[key];let rows="";
+  L.bars.forEach((b,bi)=>{rows+=`<div class="g-row"><div class="g-rl"><i class="${PH[b.ph].c}"></i>${PH[b.ph].n}</div><div class="g-bar ${PH[b.ph].c}" style="grid-column:${b.s+2}/${b.e+2}" data-k="${key}" data-b="${bi}">M${b.s}–M${b.e} · ${b.sum}</div></div>`;});
+  return `<div class="g-lane-title">${L.title}<span class="lt-tag">${L.tag}</span></div>${rows}`;}
+let head='<div class="gh-sp">Month →</div>';for(let m=1;m<=15;m++){head+=`<div class="gh-m">M${m}</div>`;}
+let flags="";SYNCS.forEach((s,si)=>{const cs=Math.min(s.m+1,16),ce=Math.min(s.m+2,17);flags+=`<div class="sync-flag" style="grid-column:${cs}/${ce}" data-s="${si}">◆ ${s.t} · M${s.m}</div>`;});
+gi.innerHTML=`<div class="g-head">${head}</div>`+laneHTML("s1")+`<div class="g-syncrail">${flags}</div>`+laneHTML("s2");
+function selG(el){document.querySelectorAll(".g-bar,.sync-flag").forEach(x=>x.classList.remove("sel"));el.classList.add("sel");}
+function renderGBar(k,bi){const L=GANTT[k],b=L.bars[bi];
+  gd2.innerHTML=`<div class="dp-meta">${L.title.split(" — ")[0]} · ${PH[b.ph].n} · M${b.s}–M${b.e}</div><h4>${b.sum}</h4><ul>${b.act.map(a=>`<li>${a}</li>`).join("")}</ul>`;}
+function renderSyncD(si){const s=SYNCS[si];gd2.innerHTML=`<div class="dp-meta">◆ Cross-stream sync point · Month ${s.m}</div><h4>${s.t}</h4><p style="color:#c1cddd;font-size:14.5px;margin-top:6px">${s.d}</p>`;}
+gi.addEventListener("click",e=>{const bar=e.target.closest(".g-bar"),fl=e.target.closest(".sync-flag");
+  if(bar){selG(bar);renderGBar(bar.dataset.k,+bar.dataset.b);}else if(fl){selG(fl);renderSyncD(+fl.dataset.s);}});
+renderGBar("s1",0);document.querySelector('.g-bar[data-k="s1"][data-b="0"]').classList.add("sel");
+const depsEl=document.getElementById("deps");
+DEPS.forEach(d=>{const el=document.createElement("div");el.className="dep";el.innerHTML=`<b>${d.t}</b>${d.d}`;depsEl.appendChild(el);});
 
 /* ===== PRINCIPLES ===== */
 const PRI=[
