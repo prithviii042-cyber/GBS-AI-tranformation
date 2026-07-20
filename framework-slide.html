@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Operating Model Framework</title>
+<style>
+:root{
+  --slate:#3f4a5a;--muted:#8a9099;
+  --gold:#a98b3c;--gold-bg:#fbf5e2;--gold-bd:#ecdfb4;
+  --green:#5a8a6a;--green-bg:#e9f3ec;--green-bd:#cfe5d6;
+  --blue:#4a72a8;--blue-bg:#eaf1f8;--blue-bd:#d3e0f0;
+  --purple:#7a5aa8;--purple-bg:#f0eaf7;--purple-bd:#ddd2ec;
+  --sans:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:#eef1f5;min-height:100vh;display:grid;place-items:center;padding:28px}
+.frame{width:760px;background:#fff;padding:6px 24px 20px;border-radius:6px}
+@media(max-width:812px){.frame{transform:scale(calc((100vw - 40px)/760));transform-origin:top center}}
+
+/* pediment / temple top */
+.ped{height:66px;position:relative;margin:0 -4px 12px}
+.ped .tri{position:absolute;inset:0 6px;background:linear-gradient(#f2f2f2,#e6e6e6);
+  clip-path:polygon(50% 0,100% 60%,100% 84%,0 84%,0 60%)}
+.ped .bar{position:absolute;left:0;right:0;bottom:0;height:11px;background:#ececec;border-radius:3px}
+.ped .knob{position:absolute;left:50%;top:40px;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:#cfcfcf}
+
+/* layer boxes */
+.layer{border:1.5px solid;border-radius:12px;padding:12px 14px 14px;margin-bottom:14px;position:relative}
+.layer .lh{text-align:center;font-size:14.5px;font-weight:800;margin-bottom:2px}
+.layer .lsub{text-align:center;font-size:11px;color:var(--muted);margin-bottom:11px}
+.cards{display:grid;gap:10px}
+.card{background:#fff;border:1.5px solid;border-radius:9px;padding:11px 8px;text-align:center;min-height:74px;display:flex;flex-direction:column;justify-content:center}
+.card .t1{font-weight:800;font-size:13px;line-height:1.15;color:var(--gold)}
+.card .t2{font-weight:700;font-size:12px;line-height:1.2;color:var(--slate);margin-top:3px}
+.card .t3{font-style:italic;font-size:10.5px;color:var(--muted);margin-top:5px}
+.card .code{font-style:italic;font-size:10.5px;color:var(--muted);margin-top:2px}
+
+/* ROOF */
+.roof{background:var(--gold-bg);border-color:var(--gold-bd)}
+.roof .lh{color:var(--gold)}
+.roof .cards{grid-template-columns:repeat(5,1fr)}
+.roof .card{border-color:var(--gold-bd)}
+
+/* FLOORS */
+.floors{background:var(--green-bg);border-color:var(--green-bd)}
+.floors .lh{color:var(--green)}
+.floors .cards{grid-template-columns:repeat(6,1fr)}
+.floors .card{border-color:var(--green-bd);min-height:64px}
+.floors .card .t2{color:var(--slate);font-size:12px;margin-top:0}
+.corner{display:flex;justify-content:space-between;margin-top:9px;font-size:10.5px;color:var(--green);opacity:.85}
+
+/* WALLS */
+.walls{background:var(--blue-bg);border-color:var(--blue-bd)}
+.walls .lh{color:var(--blue)}
+.walls .cards{grid-template-columns:repeat(5,1fr)}
+.walls .card{border-color:var(--blue-bd)}
+.walls .card .t2{color:var(--blue);font-size:12.5px;margin-top:0}
+
+/* PILLARS */
+.pillars{background:var(--purple-bg);border-color:var(--purple-bd)}
+.pillars .lh{color:var(--purple)}
+.pillars .cards{grid-template-columns:repeat(5,1fr)}
+.pillars .card{border-color:var(--purple-bd);min-height:58px}
+.pillars .card .t2{color:var(--purple);font-size:12.5px;margin-top:0}
+
+/* base + footer */
+.base{height:12px;background:#f0f0f0;border-radius:3px;margin:2px 0 12px}
+.foot{text-align:center;font-size:12.5px;color:var(--slate)}
+</style>
+</head>
+<body>
+<div class="frame">
+
+  <div class="ped"><div class="tri"></div><div class="knob"></div><div class="bar"></div></div>
+
+  <!-- ROOF -->
+  <div class="layer roof">
+    <div class="lh">The roof &middot; Five agency levels</div>
+    <div class="cards">
+      <div class="card"><div class="t1">Level 1</div><div class="t2">Human Initiation</div><div class="t3">Initiate</div></div>
+      <div class="card"><div class="t1">Level 2</div><div class="t2">Structured Human Initiation</div><div class="t3">Set rules</div></div>
+      <div class="card"><div class="t1">Level 3</div><div class="t2">System-Assisted Initiation</div><div class="t3">Support</div></div>
+      <div class="card"><div class="t1">Level 4</div><div class="t2">Supervised System Initiation</div><div class="t3">Initiate</div></div>
+      <div class="card"><div class="t1">Level 5</div><div class="t2">Governed Autonomy</div><div class="t3">Govern</div></div>
+    </div>
+  </div>
+
+  <!-- FLOORS -->
+  <div class="layer floors">
+    <div class="lh">The floors &middot; Six readiness dimensions</div>
+    <div class="lsub">each dimension progresses from foundational to advanced capability</div>
+    <div class="cards">
+      <div class="card"><div class="t2">Data Quality</div></div>
+      <div class="card"><div class="t2">Governance and Decision Rights</div></div>
+      <div class="card"><div class="t2">Process Discipline</div></div>
+      <div class="card"><div class="t2">Roles and Skills</div></div>
+      <div class="card"><div class="t2">Technology Enablement</div></div>
+      <div class="card"><div class="t2">Cultural Readiness</div></div>
+    </div>
+    <div class="corner"><span>Foundational capability</span><span>Advanced capability</span></div>
+  </div>
+
+  <!-- WALLS -->
+  <div class="layer walls">
+    <div class="lh">The walls &middot; Five archetypes</div>
+    <div class="cards">
+      <div class="card"><div class="t2">Global Efficiency Engine</div><div class="t3">built for scale</div><div class="code">A1</div></div>
+      <div class="card"><div class="t2">Decision Intelligence Design</div><div class="t3">built for speed</div><div class="code">A2</div></div>
+      <div class="card"><div class="t2">Ecosystem Navigation Design</div><div class="t3">built for complexity</div><div class="code">A3</div></div>
+      <div class="card"><div class="t2">System-Governed Design</div><div class="t3">built for autonomy</div><div class="code">A4</div></div>
+      <div class="card"><div class="t2">Federated Coherence Design</div><div class="t3">built for diversity</div><div class="code">A5</div></div>
+    </div>
+  </div>
+
+  <!-- PILLARS -->
+  <div class="layer pillars">
+    <div class="lh">The pillars &middot; Five design levers</div>
+    <div class="cards">
+      <div class="card"><div class="t2">Role and mandate</div></div>
+      <div class="card"><div class="t2">Placement and proximity</div></div>
+      <div class="card"><div class="t2">Scope of accountability</div></div>
+      <div class="card"><div class="t2">Process standardization</div></div>
+      <div class="card"><div class="t2">Sourcing Boundaries</div></div>
+    </div>
+  </div>
+
+  <div class="base"></div>
+  <div class="foot">Readiness defines what the model can safely support. Agency reflects how far the model can safely extend.</div>
+
+</div>
+</body>
+</html>
