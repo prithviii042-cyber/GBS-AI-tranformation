@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EY · Operating-Model Approach — RCPL</title>
+<style>
+:root{
+  --ink:#1b2740;--muted:#5c6673;--line:#e4dfd3;
+  --gold:#b6862c;--gold-bg:#faf3e0;--gold-bd:#e8d9a8;
+  --green:#4a8060;--green-bg:#e9f3ec;--green-bd:#cfe5d6;
+  --blue:#3f6da8;--blue-bg:#eaf0f8;--blue-bd:#cfe0f0;
+  --purple:#7a5aa8;--purple-bg:#f0eaf7;--purple-bd:#ddd0ec;
+  --sans:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:#0f1f38;min-height:100vh;display:grid;place-items:center;padding:24px;color:var(--ink)}
+
+/* 16:9 slide, scales to viewport width */
+.slide{width:1280px;height:720px;background:#fff;border-radius:14px;box-shadow:0 30px 90px -30px rgba(0,0,0,.6);
+  transform-origin:center;overflow:hidden;display:flex;flex-direction:column;position:relative}
+@media(max-width:1340px){.slide{transform:scale(calc((100vw - 48px)/1280))}}
+
+/* header */
+.s-head{display:flex;align-items:center;gap:16px;padding:26px 40px 16px}
+.ey-logo{display:inline-grid;place-items:center;background:#2e2e38;color:#ffe600;font-weight:900;font-style:italic;width:52px;height:42px;border-radius:6px;font-size:22px;flex:none}
+.s-head h1{font-size:27px;font-weight:800;letter-spacing:-.4px;line-height:1.1}
+.s-head h1 span{color:var(--gold)}
+.s-head .sub{font-size:13px;color:var(--muted);margin-top:2px}
+.s-tag{margin-left:auto;text-align:right;font-size:12px;color:var(--muted);line-height:1.5}
+.s-tag b{color:var(--ink)}
+.rule{height:3px;background:linear-gradient(90deg,var(--gold),#e0c283 40%,transparent);margin:0 40px}
+
+/* body */
+.s-body{flex:1;display:grid;grid-template-columns:0.9fr 1.1fr;gap:30px;padding:20px 40px 12px;min-height:0}
+
+/* LEFT — the building */
+.bldg{display:flex;flex-direction:column;justify-content:center;gap:9px}
+.bldg .roofcap{height:16px;background:#ededed;border-radius:6px 6px 2px 2px;margin:0 30px;position:relative}
+.bldg .roofcap::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:#c9c9c9}
+.band{border:1.5px solid;border-radius:12px;padding:11px 14px;position:relative}
+.band .bt{font-size:13px;font-weight:800;letter-spacing:.2px}
+.band .bd{font-size:10.5px;color:var(--muted);margin-top:1px}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.chips span{font-size:9.5px;font-weight:600;background:#fff;border:1px solid;border-radius:5px;padding:3px 6px;line-height:1.1}
+.band.roof{background:var(--gold-bg);border-color:var(--gold-bd)}.band.roof .bt{color:var(--gold)}.band.roof .chips span{border-color:var(--gold-bd);color:var(--gold)}
+.band.floors{background:var(--green-bg);border-color:var(--green-bd)}.band.floors .bt{color:var(--green)}.band.floors .chips span{border-color:var(--green-bd);color:var(--green)}
+.band.walls{background:var(--blue-bg);border-color:var(--blue-bd)}.band.walls .bt{color:var(--blue)}.band.walls .chips span{border-color:var(--blue-bd);color:var(--blue)}
+.band.pillars{background:var(--purple-bg);border-color:var(--purple-bd)}.band.pillars .bt{color:var(--purple)}.band.pillars .chips span{border-color:var(--purple-bd);color:var(--purple)}
+.band.walls .chips span.hot{background:var(--blue);color:#fff;border-color:var(--blue)}
+.seq{position:absolute;top:-11px;left:-11px;width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.3);border:2px solid #fff}
+.band.dim{opacity:.5;transition:.2s}
+.bldg-base{height:12px;background:#ededed;border-radius:2px 2px 8px 8px;margin:2px 12px 0}
+
+/* RIGHT — the sequence */
+.steps{display:flex;flex-direction:column;gap:12px;justify-content:center}
+.steps .lead{font-size:12.5px;color:var(--muted);margin-bottom:2px}
+.step{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-left-width:5px;border-radius:12px;padding:12px 15px;transition:.2s;cursor:default;background:#fff}
+.step:hover{box-shadow:0 10px 26px -16px rgba(0,0,0,.4);transform:translateX(3px)}
+.step .n{width:30px;height:30px;border-radius:9px;color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px;flex:none}
+.step h3{font-size:15px;font-weight:800}
+.step h3 small{font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.4px;margin-left:6px}
+.step .q{font-size:12px;color:var(--muted);font-style:italic;margin:1px 0 5px}
+.step p{font-size:12px;color:var(--ink);line-height:1.42}
+.step.green{border-left-color:var(--green)}.step.green .n{background:var(--green)}.step.green h3 small{color:var(--green)}
+.step.purple{border-left-color:var(--purple)}.step.purple .n{background:var(--purple)}.step.purple h3 small{color:var(--purple)}
+.step.blue{border-left-color:var(--blue)}.step.blue .n{background:var(--blue)}.step.blue h3 small{color:var(--blue)}
+.step.gold{border-left-color:var(--gold)}.step.gold .n{background:var(--gold)}.step.gold h3 small{color:var(--gold)}
+.rcpl{display:inline-block;background:var(--blue);color:#fff;font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:100px;margin-left:6px;vertical-align:middle}
+
+/* footer */
+.s-foot{padding:12px 40px 20px;display:flex;align-items:center;gap:14px;border-top:1px solid var(--line);margin:0 0 0}
+.s-foot .fl{font-size:12.5px;color:var(--ink);font-weight:600}
+.s-foot .fl b{color:var(--gold)}
+.s-foot .src{margin-left:auto;font-size:10.5px;color:#9aa3af;font-style:italic}
+</style>
+</head>
+<body>
+<div class="slide" id="slide">
+  <div class="s-head">
+    <span class="ey-logo">EY</span>
+    <div>
+      <h1>From readiness to <span>governed autonomy</span></h1>
+      <div class="sub">Our operating-model approach for RCPL — sequenced assessment to outcome</div>
+    </div>
+    <div class="s-tag"><b>RCPL · Target Operating Model</b><br>AI-Enabled SSC Transformation</div>
+  </div>
+  <div class="rule"></div>
+
+  <div class="s-body">
+    <!-- LEFT: the building (base framework) -->
+    <div class="bldg">
+      <div class="roofcap"></div>
+      <div class="band roof" data-layer="roof">
+        <span class="seq">4</span>
+        <div class="bt">The roof · Five agency levels</div>
+        <div class="bd">The output — how far work is system- vs human-initiated</div>
+        <div class="chips"><span>L1 Human</span><span>L2 Structured</span><span>L3 Assisted</span><span>L4 Supervised</span><span>L5 Governed autonomy</span></div>
+      </div>
+      <div class="band floors" data-layer="floors">
+        <span class="seq">1</span>
+        <div class="bt">The floors · Six readiness dimensions</div>
+        <div class="bd">Foundational → advanced capability</div>
+        <div class="chips"><span>Data Quality</span><span>Governance &amp; Rights</span><span>Process Discipline</span><span>Roles &amp; Skills</span><span>Technology</span><span>Culture</span></div>
+      </div>
+      <div class="band walls" data-layer="walls">
+        <span class="seq">3</span>
+        <div class="bt">The walls · Five archetypes</div>
+        <div class="bd">The engine / operating-model type</div>
+        <div class="chips"><span>A1 Efficiency</span><span>A2 Decision Intel</span><span>A3 Ecosystem</span><span class="hot">A4 System-Governed ★</span><span>A5 Federated</span></div>
+      </div>
+      <div class="band pillars" data-layer="pillars">
+        <span class="seq">2</span>
+        <div class="bt">The pillars · Five design levers</div>
+        <div class="bd">The choices that configure capability</div>
+        <div class="chips"><span>Role &amp; Mandate</span><span>Placement</span><span>Scope</span><span>Standardisation</span><span>Sourcing</span></div>
+      </div>
+      <div class="bldg-base"></div>
+    </div>
+
+    <!-- RIGHT: the resequenced approach -->
+    <div class="steps">
+      <div class="lead">We read the framework as a sequence — bottom-up from the ground truth to the outcome:</div>
+      <div class="step green" data-layer="floors">
+        <div class="n">1</div>
+        <div>
+          <h3>Readiness <small>The floors</small></h3>
+          <div class="q">Where is RCPL today?</div>
+          <p>Current-state assessment across the six readiness dimensions — RCPL already runs on capable but fragmented systems. This defines <b>what the model can safely support</b>.</p>
+        </div>
+      </div>
+      <div class="step purple" data-layer="pillars">
+        <div class="n">2</div>
+        <div>
+          <h3>Pillars <small>Design levers</small></h3>
+          <div class="q">What choices define the model?</div>
+          <p>Configure the five design levers to RCPL's context — <b>identifying the target capability</b> the operating model must carry.</p>
+        </div>
+      </div>
+      <div class="step blue" data-layer="walls">
+        <div class="n">3</div>
+        <div>
+          <h3>Walls <small>The engine</small><span class="rcpl">RCPL future state</span></h3>
+          <div class="q">Which operating-model type?</div>
+          <p>Select the archetype that fits. For RCPL the future state is <b>System-Governed Design (A4)</b> — built for autonomy, matching the 100+ agentic-AI ambition.</p>
+        </div>
+      </div>
+      <div class="step gold" data-layer="roof">
+        <div class="n">4</div>
+        <div>
+          <h3>Roof <small>Agency / output</small></h3>
+          <div class="q">What does it produce?</div>
+          <p>Agency — how far systems vs humans initiate work. RCPL climbs <b>L1 → L5</b>, wave by wave, to <b>Governed Autonomy</b>, never faster than readiness and governance allow.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-foot">
+    <div class="fl"><b>Readiness</b> defines what the model can safely support · <b>Agency</b> reflects how far it can safely extend.</div>
+    <div class="src">Framework: EY / FP&amp;A Trends 2026 · resequenced for RCPL</div>
+  </div>
+</div>
+
+<script>
+/* hover a step → highlight the matching building layer */
+const bands=[...document.querySelectorAll(".band[data-layer]")];
+document.querySelectorAll(".step[data-layer]").forEach(step=>{
+  const l=step.dataset.layer;
+  step.addEventListener("mouseenter",()=>bands.forEach(b=>b.classList.toggle("dim",b.dataset.layer!==l)));
+  step.addEventListener("mouseleave",()=>bands.forEach(b=>b.classList.remove("dim")));
+});
+</script>
+</body>
+</html>
